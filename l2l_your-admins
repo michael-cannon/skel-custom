@@ -9,7 +9,7 @@
 DOMAIN_NAME="typo3.your-admins.de"
 REMOTE_DIR_WWW="/home/typo3.your-admins.de/public_html"
 REMOTE_SERVER="typo3.your-admins.de@typo3.your-admins.de"
-TYPO3_VERSION="4.7.1"
+TYPO3_VERSION="4.7.3"
 FILE_CONFIG_OVERWRITE_DENY=1
 # USE_FTP="true"
 
