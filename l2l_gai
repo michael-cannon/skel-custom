@@ -16,28 +16,6 @@ VHOST_NO_CREATE="true"
 # LOCAL_MODS[2]="perl -pi -e 's/^(AddHandler x-mapp-php5 .php)/# \1/g' .htaccess"
 
 
-DOMAIN_NAME="gracechurchmassapequa.org"
-WWW_USER="gracechu"
-REMOTE_DIR_WWW="/var/www/sites/${DOMAIN_NAME}/docs"
-WWW_GROUP="${WWW_USER}"
-LOCAL_DIR_WWW="/home/${WWW_USER}/public_html"
-source ~/.skel/scripts/live2local.sh
-l2l_site_typo3
-l2l_do_sync ${@}
-
-
-l2l_reset
-DOMAIN_NAME="accountability-central.com"
-WWW_USER="accounta"
-REMOTE_DIR_WWW="/var/www/sites/${DOMAIN_NAME}/docs"
-WWW_GROUP="${WWW_USER}"
-LOCAL_DIR_WWW="/home/${WWW_USER}/public_html"
-source ~/.skel/scripts/live2local.sh
-l2l_site_typo3
-l2l_do_sync ${@}
-
-
-l2l_reset
 DOMAIN_NAME="accountability-matters.com"
 WWW_USER="accountm"
 REMOTE_DIR_WWW="/var/www/sites/${DOMAIN_NAME}/docs"
@@ -115,6 +93,17 @@ l2l_do_sync ${@}
 
 
 l2l_reset
+DOMAIN_NAME="gracechurchmassapequa.org"
+WWW_USER="gracechu"
+REMOTE_DIR_WWW="/var/www/sites/${DOMAIN_NAME}/docs"
+WWW_GROUP="${WWW_USER}"
+LOCAL_DIR_WWW="/home/${WWW_USER}/public_html"
+source ~/.skel/scripts/live2local.sh
+l2l_site_typo3
+l2l_do_sync ${@}
+
+
+l2l_reset
 DOMAIN_NAME="hankboerner.com"
 WWW_USER="hankboer"
 REMOTE_DIR_WWW="/var/www/sites/${DOMAIN_NAME}"
@@ -136,6 +125,7 @@ l2l_site_static
 l2l_do_sync ${@}
 
 
+l2l_reset
 DOMAIN_NAME="interpublicpreparedness.com"
 WWW_USER="interpub"
 REMOTE_DIR_WWW="/var/www/sites/${DOMAIN_NAME}/docs"
@@ -146,6 +136,7 @@ l2l_site_typo3
 l2l_do_sync ${@}
 
 
+l2l_reset
 DOMAIN_NAME="rba-consultants.com"
 WWW_USER="rbaconsu"
 REMOTE_DIR_WWW="/var/www/sites/${DOMAIN_NAME}/docs"
@@ -156,6 +147,7 @@ l2l_site_typo3
 l2l_do_sync ${@}
 
 
+l2l_reset
 DOMAIN_NAME="rowanblewitt.com"
 WWW_USER="rowanble"
 REMOTE_DIR_WWW="/var/www/sites/${DOMAIN_NAME}/docs"
@@ -166,8 +158,20 @@ l2l_site_static
 l2l_do_sync ${@}
 
 
+l2l_reset
 DOMAIN_NAME="theblewittfoundation.com"
 WWW_USER="theblewi"
+REMOTE_DIR_WWW="/var/www/sites/${DOMAIN_NAME}/docs"
+WWW_GROUP="${WWW_USER}"
+LOCAL_DIR_WWW="/home/${WWW_USER}/public_html"
+source ~/.skel/scripts/live2local.sh
+l2l_site_typo3
+l2l_do_sync ${@}
+
+
+l2l_reset
+DOMAIN_NAME="accountability-central.com"
+WWW_USER="accounta"
 REMOTE_DIR_WWW="/var/www/sites/${DOMAIN_NAME}/docs"
 WWW_GROUP="${WWW_USER}"
 LOCAL_DIR_WWW="/home/${WWW_USER}/public_html"
