@@ -4,7 +4,23 @@
 #
 # @author Michael Cannon <michael@peimic.com>
 
-TYPO3_VERSION="4.5.19"
+RUN_MODE=0
+
+if [[ -n ${1} ]]
+then
+	if [[ "live" == ${1} ]]
+	then
+		RUN_MODE="${1}"
+	elif [[ "dev" == ${1} ]]
+	then
+		RUN_MODE="${1}"
+	else
+		TYPO3_VERSION="${1}"
+	fi
+else
+	TYPO3_VERSION="4.5.19"
+fi
+
 WWW_GROUP="apache"
 WWW_USER="michael"
 WWW_DIRS="/var/www/domains/stonebriar.org/newsletters/htdocs
@@ -13,20 +29,26 @@ WWW_DIRS="/var/www/domains/stonebriar.org/newsletters/htdocs
 
 for WWW_DIR in ${WWW_DIRS}
 do
-	echo cd ${WWW_DIR}
+	cd ${WWW_DIR}
 
-	# dev permisssions
-	chattr -i ${WWW_DIR}
-	~/bin/websitepermissions ${WWW_USER} ${WWW_GROUP} dev
-	chown ${WWW_USER}:${WWW_GROUP} ${WWW_DIR}
-	chmod 0770 ${WWW_DIR}
+	if [[ "live" != ${RUN_MODE} ]]
+	then
+		# dev permisssions
+		chattr -i ${WWW_DIR}
+		~/bin/websitepermissions ${WWW_USER} ${WWW_GROUP} dev
+		chown ${WWW_USER}:${WWW_GROUP} ${WWW_DIR}
+		chmod 0770 ${WWW_DIR}
 
-	# update TYPO3
-	~/bin/t3upgrade.sh ${TYPO3_VERSION}
-	rm -f typo3conf/temp_CACHED_*
-
-	# production perms
-	~/bin/websitepermissions ${WWW_USER} ${WWW_GROUP}
-	chmod 0750 ${WWW_DIR}
-	chattr +i ${WWW_DIR}
+		if [[ "dev" == ${RUN_MODE} ]]
+		then
+			# update TYPO3
+			~/bin/t3upgrade.sh ${TYPO3_VERSION}
+			rm -f typo3conf/temp_CACHED_*
+		else
+	else
+		# production perms
+		~/bin/websitepermissions ${WWW_USER} ${WWW_GROUP}
+		chmod 0750 ${WWW_DIR}
+		chattr +i ${WWW_DIR}
+	fi
 done
