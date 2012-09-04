@@ -4,7 +4,7 @@
 #
 # @author Michael Cannon <michael@peimic.com>
 
-RUN_MODE=0
+RUN_MODE=
 
 if [[ -n ${1} ]]
 then
@@ -23,9 +23,9 @@ fi
 
 DIR_HOMES="/home"
 DIR_HTDOCS="public_html"
-DIR_TYPO3_SRC="typo3_src"
-WWW_GROUP="nobody"
+DIR_TYPO3_SRC="t3lib"
 WWW_DIRS=`find ${DIR_HOMES} -maxdepth 3 -name ${DIR_TYPO3_SRC}`
+WWW_GROUP="nobody"
 
 for WWW_DIR in ${WWW_DIRS}
 do
@@ -56,5 +56,4 @@ do
 		chmod ug+s ${WWW_DIR}
 		chattr +i ${WWW_DIR}
 	fi
-	exit
 done
