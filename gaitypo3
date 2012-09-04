@@ -1,0 +1,59 @@
+#!/bin/sh
+
+# Update TYPO3 for GA Institute sites
+#
+# @author Michael Cannon <michael@peimic.com>
+
+RUN_MODE=0
+
+if [[ -n ${1} ]]
+then
+	if [[ "live" == ${1} ]]
+	then
+		RUN_MODE="${1}"
+	elif [[ "dev" == ${1} ]]
+	then
+		RUN_MODE="${1}"
+	else
+		TYPO3_VERSION="${1}"
+	fi
+else
+	TYPO3_VERSION="4.5.19"
+fi
+
+DIR_HOMES="/home"
+DIR_HTDOCS="public_html"
+DIR_TYPO3_SRC="typo3_src"
+WWW_GROUP="nobody"
+WWW_DIRS=`find ${DIR_HOMES} -maxdepth 3 -name ${DIR_TYPO3_SRC}`
+
+for WWW_DIR in ${WWW_DIRS}
+do
+	WWW_USER=`echo ${WWW_DIR} | sed -e "s#${DIR_HOMES}/##g" -e "s#/${DIR_HTDOCS}.*##g"`
+	WWW_DIR=`echo ${WWW_DIR} | sed -e "s#/${DIR_TYPO3_SRC}##g"`
+	cd ${WWW_DIR}
+
+	if [[ "live" != ${RUN_MODE} ]]
+	then
+		# dev permisssions
+		chattr -i ${WWW_DIR}
+		~/bin/websitepermissions ${WWW_USER} ${WWW_GROUP} dev
+		chown ${WWW_USER}:${WWW_GROUP} ${WWW_DIR}
+		chmod 0770 ${WWW_DIR}
+		chmod ug-s ${WWW_DIR}
+
+		if [[ "dev" == ${RUN_MODE} ]]
+		then
+			# update TYPO3
+			~/bin/t3upgrade.sh ${TYPO3_VERSION}
+			rm -f typo3conf/temp_CACHED_*
+		fi
+	else
+		# production perms
+		~/bin/websitepermissions ${WWW_USER} ${WWW_GROUP} dev
+		chmod 0771 ${WWW_DIR}
+		chmod ug+s ${WWW_DIR}
+		chattr +i ${WWW_DIR}
+	fi
+	exit
+done
