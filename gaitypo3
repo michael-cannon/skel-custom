@@ -38,19 +38,20 @@ do
 		# dev permisssions
 		chattr -i ${WWW_DIR}
 		~/bin/websitepermissions ${WWW_USER} ${WWW_GROUP} dev
-		chown ${WWW_USER}:${WWW_GROUP} ${WWW_DIR}
 		chmod 0770 ${WWW_DIR}
-		chmod ug-s ${WWW_DIR}
 
 		if [[ "dev" == ${RUN_MODE} ]]
 		then
 			# update TYPO3
 			~/bin/t3upgrade.sh ${TYPO3_VERSION}
 			rm -f typo3conf/temp_CACHED_*
+			rm -rf typo3temp/*
+			chown -R ${WWW_USER}:${WWW_GROUP} ${WWW_DIR}
 		fi
 	else
 		# production perms
 		~/bin/websitepermissions ${WWW_USER} ${WWW_GROUP} dev
+		chown ${WWW_USER}:${WWW_GROUP} ${WWW_DIR}
 		chmod 0771 ${WWW_DIR}
 		chmod ug+s ${WWW_DIR}
 		chattr +i ${WWW_DIR}

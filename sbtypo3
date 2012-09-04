@@ -44,11 +44,14 @@ do
 			# update TYPO3
 			~/bin/t3upgrade.sh ${TYPO3_VERSION}
 			rm -f typo3conf/temp_CACHED_*
+			rm -rf typo3temp/*
+			chown -R ${WWW_USER}:${WWW_GROUP} ${WWW_DIR}
 		fi
 	else
 		# production perms
 		~/bin/websitepermissions ${WWW_USER} ${WWW_GROUP}
 		chmod 0750 ${WWW_DIR}
+		chmod ug+s ${WWW_DIR}
 		chattr +i ${WWW_DIR}
 	fi
 done
