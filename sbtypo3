@@ -44,7 +44,7 @@ do
 			# update TYPO3
 			~/bin/t3upgrade.sh ${TYPO3_VERSION}
 			rm -f typo3conf/temp_CACHED_*
-		else
+		fi
 	else
 		# production perms
 		~/bin/websitepermissions ${WWW_USER} ${WWW_GROUP}

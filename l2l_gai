@@ -11,10 +11,8 @@ PERMS_MODE="dev"
 REMOTE_SERVER="root@63.131.141.29"
 VHOST_NO_CREATE="true"
 WWW_GROUP="nobody"
-# DB_FULL_DUMP="true"
-# DB_NO_CREATE="true"
-# LOCAL_MODS[1]="perl -pi -e 's/^(AddType x-mapp-php5 .php)/# \1/g' .htaccess"
-# LOCAL_MODS[2]="perl -pi -e 's/^(AddHandler x-mapp-php5 .php)/# \1/g' .htaccess"
+
+source ~/.skel/scripts/live2local.sh
 
 if [[ 0 = 1 ]]
 then
@@ -95,7 +93,6 @@ LOCAL_DIR_WWW="/home/${WWW_USER}/public_html"
 source ~/.skel/scripts/live2local.sh
 l2l_site_typo3
 l2l_do_sync ${@}
-fi
 
 
 l2l_reset
@@ -141,7 +138,7 @@ l2l_do_sync ${@}
 l2l_reset
 DOMAIN_NAME="rowanblewitt.com"
 WWW_USER="rowanble"
-REMOTE_DIR_WWW="/var/www/sites/${DOMAIN_NAME}/docs"
+REMOTE_DIR_WWW="/var/www/sites/${DOMAIN_NAME}/docs/htdocs/"
 LOCAL_DIR_WWW="/home/${WWW_USER}/public_html"
 source ~/.skel/scripts/live2local.sh
 l2l_site_static
@@ -156,6 +153,7 @@ LOCAL_DIR_WWW="/home/${WWW_USER}/public_html"
 source ~/.skel/scripts/live2local.sh
 l2l_site_typo3
 l2l_do_sync ${@}
+fi
 
 
 l2l_reset
