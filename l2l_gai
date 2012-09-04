@@ -122,6 +122,7 @@ REMOTE_DIR_WWW="/var/www/sites/${DOMAIN_NAME}/docs"
 LOCAL_DIR_WWW="/home/${WWW_USER}/public_html"
 source ~/.skel/scripts/live2local.sh
 l2l_site_typo3
+l2l_do_sync setup
 l2l_do_sync ${@}
 
 
@@ -153,7 +154,6 @@ LOCAL_DIR_WWW="/home/${WWW_USER}/public_html"
 source ~/.skel/scripts/live2local.sh
 l2l_site_typo3
 l2l_do_sync ${@}
-fi
 
 
 l2l_reset
@@ -164,3 +164,15 @@ LOCAL_DIR_WWW="/home/${WWW_USER}/public_html"
 source ~/.skel/scripts/live2local.sh
 l2l_site_typo3
 l2l_do_sync ${@}
+
+
+l2l_reset
+DOMAIN_NAME="interpublicpreparedness.com"
+WWW_USER="interpub"
+REMOTE_DIR_WWW="/var/www/sites/${DOMAIN_NAME}/docs"
+LOCAL_DIR_WWW="/home/${WWW_USER}/public_html"
+source ~/.skel/scripts/live2local.sh
+l2l_site_phplist
+l2l_do_sync setup
+l2l_do_sync ${@}
+fi
