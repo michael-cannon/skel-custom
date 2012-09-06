@@ -76,12 +76,12 @@ l2l_do_sync ${@}
 
 
 l2l_reset
-DOMAIN_NAME="ga-lists.com"
-WWW_USER="galists"
+DOMAIN_NAME="brcmedicalgroup.com"
+WWW_USER="brcmedic"
 REMOTE_DIR_WWW="/var/www/sites/${DOMAIN_NAME}/docs"
 LOCAL_DIR_WWW="/home/${WWW_USER}/public_html"
 source ~/.skel/scripts/live2local.sh
-l2l_site_phplist
+l2l_site_typo3
 l2l_do_sync ${@}
 
 
@@ -163,6 +163,7 @@ REMOTE_DIR_WWW="/var/www/sites/${DOMAIN_NAME}/docs"
 LOCAL_DIR_WWW="/home/${WWW_USER}/public_html"
 source ~/.skel/scripts/live2local.sh
 l2l_site_typo3
+l2l_do_sync setup
 l2l_do_sync ${@}
 
 
@@ -173,6 +174,28 @@ REMOTE_DIR_WWW="/var/www/sites/${DOMAIN_NAME}/docs"
 LOCAL_DIR_WWW="/home/${WWW_USER}/public_html"
 source ~/.skel/scripts/live2local.sh
 l2l_site_phplist
+l2l_do_sync setup
+l2l_do_sync ${@}
+
+
+l2l_reset
+DOMAIN_NAME="ga-lists.com"
+WWW_USER="galists"
+REMOTE_DIR_WWW="/var/www/sites/${DOMAIN_NAME}/docs"
+LOCAL_DIR_WWW="/home/${WWW_USER}/public_html"
+source ~/.skel/scripts/live2local.sh
+l2l_site_phplist
+l2l_do_sync ${@}
+
+
+l2l_reset
+DOMAIN_NAME="accountability-central.com"
+WWW_USER="accounta"
+FILE_CONFIG="ox/var/www.${DOMAIN_NAME}.conf.php"
+REMOTE_DIR_WWW="/var/www/sites/${DOMAIN_NAME}/docs"
+LOCAL_DIR_WWW="/home/${WWW_USER}/public_html"
+source ~/.skel/scripts/live2local.sh
+l2l_site_openx
 l2l_do_sync setup
 l2l_do_sync ${@}
 fi
