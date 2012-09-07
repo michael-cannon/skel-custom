@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Helper for pulling live DOMAIN_NAME to local
+# Helper for pulling multiple GA Institute properties to new server
 #
-# @author Michael Cannon <michael@peimic.com>
+# @author Michael Cannon <mc@aihr.us>
 
 # base configuration vars
 FILE_CONFIG_OVERWRITE_DENY=1
@@ -16,6 +16,8 @@ source ~/.skel/scripts/live2local.sh
 
 if [[ 0 = 1 ]]
 then
+
+l2l_reset
 DOMAIN_NAME="accountability-matters.com"
 WWW_USER="accountm"
 REMOTE_DIR_WWW="/var/www/sites/${DOMAIN_NAME}/docs"
@@ -116,17 +118,6 @@ l2l_do_sync ${@}
 
 
 l2l_reset
-DOMAIN_NAME="interpublicpreparedness.com"
-WWW_USER="interpub"
-REMOTE_DIR_WWW="/var/www/sites/${DOMAIN_NAME}/docs"
-LOCAL_DIR_WWW="/home/${WWW_USER}/public_html"
-source ~/.skel/scripts/live2local.sh
-l2l_site_typo3
-l2l_do_sync setup
-l2l_do_sync ${@}
-
-
-l2l_reset
 DOMAIN_NAME="rba-consultants.com"
 WWW_USER="rbaconsu"
 REMOTE_DIR_WWW="/var/www/sites/${DOMAIN_NAME}/docs"
@@ -157,28 +148,6 @@ l2l_do_sync ${@}
 
 
 l2l_reset
-DOMAIN_NAME="accountability-central.com"
-WWW_USER="accounta"
-REMOTE_DIR_WWW="/var/www/sites/${DOMAIN_NAME}/docs"
-LOCAL_DIR_WWW="/home/${WWW_USER}/public_html"
-source ~/.skel/scripts/live2local.sh
-l2l_site_typo3
-l2l_do_sync setup
-l2l_do_sync ${@}
-
-
-l2l_reset
-DOMAIN_NAME="interpublicpreparedness.com"
-WWW_USER="interpub"
-REMOTE_DIR_WWW="/var/www/sites/${DOMAIN_NAME}/docs"
-LOCAL_DIR_WWW="/home/${WWW_USER}/public_html"
-source ~/.skel/scripts/live2local.sh
-l2l_site_phplist
-l2l_do_sync setup
-l2l_do_sync ${@}
-
-
-l2l_reset
 DOMAIN_NAME="ga-lists.com"
 WWW_USER="galists"
 REMOTE_DIR_WWW="/var/www/sites/${DOMAIN_NAME}/docs"
@@ -189,13 +158,32 @@ l2l_do_sync ${@}
 
 
 l2l_reset
-DOMAIN_NAME="accountability-central.com"
-WWW_USER="accounta"
-FILE_CONFIG="ox/var/www.${DOMAIN_NAME}.conf.php"
+DOMAIN_NAME="interpublicpreparedness.com"
+WWW_USER="interpub"
 REMOTE_DIR_WWW="/var/www/sites/${DOMAIN_NAME}/docs"
 LOCAL_DIR_WWW="/home/${WWW_USER}/public_html"
 source ~/.skel/scripts/live2local.sh
-l2l_site_openx
-l2l_do_sync setup
+l2l_site_typo3
 l2l_do_sync ${@}
+
+l2l_reset_db
+source ~/.skel/scripts/live2local.sh
+l2l_site_phplist
+l2l_do_sync db
 fi
+
+
+l2l_reset
+DOMAIN_NAME="accountability-central.com"
+WWW_USER="accounta"
+REMOTE_DIR_WWW="/var/www/sites/${DOMAIN_NAME}/docs"
+LOCAL_DIR_WWW="/home/${WWW_USER}/public_html"
+source ~/.skel/scripts/live2local.sh
+l2l_site_typo3
+l2l_do_sync ${@}
+
+l2l_reset_db
+FILE_CONFIG="ox/var/www.${DOMAIN_NAME}.conf.php"
+source ~/.skel/scripts/live2local.sh
+l2l_site_openx
+l2l_do_sync db
