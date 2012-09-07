@@ -9,7 +9,7 @@
 DOMAIN_NAME="lehre-tum.42.in2code.de"
 REMOTE_DIR_WWW="/var/www/lehre-tum"
 REMOTE_SERVER="root@141.0.20.71"
-FILE_CONFIG_OVERWRITE_DENY=1
+FILE_CONFIG_NO_OVERWRITE=1
 
 # load live2local function helpers
 source ~/.skel/scripts/live2local.sh

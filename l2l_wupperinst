@@ -13,7 +13,7 @@ REMOTE_SERVER="winst@dedi3082.your-server.de"
 REMOTE_DIR_WWW="/usr/home/winst/public_html"
 RSYNC_MODS="--max-size=4m"
 TYPO3_VERSION="4.6.8"
-FILE_CONFIG_OVERWRITE_DENY=1
+FILE_CONFIG_NO_OVERWRITE=1
 # DB_UTF8_CONVERT="true"
 # LOCAL_MODS[1]="perl -pi -e 's#dedi3082.your-server.de#localhost#g' typo3conf/localconf.php"
 

@@ -5,7 +5,7 @@
 # @author Michael Cannon <mc@aihr.us>
 
 # base configuration vars
-FILE_CONFIG_OVERWRITE_DENY=1
+FILE_CONFIG_NO_OVERWRITE=1
 HOSTS_NO_CREATE="true"
 PERMS_MODE="dev"
 REMOTE_SERVER="root@63.131.141.29"

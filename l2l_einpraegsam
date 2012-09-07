@@ -8,7 +8,7 @@
 # base configuration vars
 # einpraegsam.net is running MySQL 4.0 on CLI so, DB_FULL_DUMP is true to
 # prevent mysqldump errors on ignore-table variables
-FILE_CONFIG_OVERWRITE_DENY="true"
+FILE_CONFIG_NO_OVERWRITE="true"
 DB_FULL_DUMP="true"
 DB_NO_CREATE="true"
 HOSTS_NO_CREATE="true"

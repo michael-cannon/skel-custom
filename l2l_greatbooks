@@ -10,7 +10,7 @@ DOMAIN_NAME="greatbooks.org"
 REMOTE_SERVER="ubuntu@devgbf.greatbooks.org"
 REMOTE_DIR_WWW="/var/www/www.greatbooks.org"
 RSYNC_MODS="--max-size=4m --include=store/ --exclude=**/store/** --include=MediaContent/ --exclude=**/MediaContent/** --include=pdf/ --exclude=**/pdf/**"
-FILE_CONFIG_OVERWRITE_DENY=1
+FILE_CONFIG_NO_OVERWRITE=1
 
 # load live2local function helpers
 source ~/.skel/scripts/live2local.sh

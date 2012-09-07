@@ -10,7 +10,7 @@ DOMAIN_NAME="aktiv-online.de"
 REMOTE_DIR_WWW="/html/typo3"
 REMOTE_SERVER="p163280@aktiv-online.de"
 TYPO3_VERSION="4.7.4"
-FILE_CONFIG_OVERWRITE_DENY=1
+FILE_CONFIG_NO_OVERWRITE=1
 RSYNC_MODS="--max-size=4m --include=service/ --exclude=**/service/** --include=uploads/ --exclude=**/uploads/** --include=typo3_src-4.7.4/ --exclude=**/typo3_src-4.7.4/**"
 BIN_MYSQL="/usr/local/bin"
 
