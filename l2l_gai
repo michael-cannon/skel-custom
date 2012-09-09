@@ -6,10 +6,10 @@
 
 # base configuration vars
 FILE_CONFIG_NO_OVERWRITE=1
-HOSTS_NO_CREATE="true"
+HOSTS_NO_CREATE=1
 PERMS_MODE="dev"
 REMOTE_SERVER="root@63.131.141.29"
-VHOST_NO_CREATE="true"
+VHOST_NO_CREATE=1
 WWW_GROUP="nobody"
 
 source ~/.skel/scripts/live2local.sh
