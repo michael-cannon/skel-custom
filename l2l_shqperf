@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Helper for pulling multiple Sustainabilityhq to dev site for performance work
+#
+# @author Michael Cannon <mc@aihr.us>
+
+DOMAIN_NAME="shqperf.flexpro.ga-institute.com"
+FILE_CONFIG_NO_OVERWRITE=1
+# DB_NO_CREATE=1
+HOSTS_NO_CREATE=1
+IS_LIVE=1
+IS_LOCAL=1
+PERMS_MODE="dev"
+REMOTE_DIR_WWW="/home/accounta/public_html"
+REMOTE_SERVER="root@localhost"
+# SHOW_COMMANDS=1
+VHOST_NO_CREATE=1
+WWW_GROUP="nobody"
+WWW_USER="shqperff"
+LOCAL_DIR_WWW="/home/${WWW_USER}/public_html"
+
+source ~/.skel/scripts/live2local.sh
+l2l_site_typo3
+l2l_do_sync ${@}
