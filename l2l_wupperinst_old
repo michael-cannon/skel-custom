@@ -12,7 +12,8 @@ DOMAIN_NAME="oldwupper.in2code.de"
 REMOTE_SERVER="ssh-968678@in2code.de"
 REMOTE_DIR_WWW="/kunden/bus-netzwerk.info/hosting/44225/in2code.de/projekte/wupper"
 # RSYNC_MODS="--max-size=2m --include=uploads/ --exclude=**/uploads/**"
-RSYNC_MODS="--max-size=2m"
+RSYNC_MODS="--max-size=4m"
+DB_NO_CREATE=1
 
 # load live2local function helpers
 source ~/.skel/scripts/live2local.sh
