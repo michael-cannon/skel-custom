@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Helper for pulling multiple Sustainabilityhq to dev site for performance work
+#
+# @author Michael Cannon <mc@aihr.us>
+
+DOMAIN_NAME="sustainabilityhq.com"
+# FILE_CONFIG_NO_OVERWRITE=1
+# DB_NO_CREATE=1
+# HOSTS_NO_CREATE=1
+# IS_LIVE=1
+# IS_LOCAL=1
+# PERMS_MODE="dev"
+REMOTE_DIR_WWW="/var/www/sites/accountability-central.com/docs"
+REMOTE_SERVER="root@63.131.141.29"
+# SHOW_COMMANDS=1
+# VHOST_NO_CREATE=1
+# WWW_GROUP="nobody"
+# WWW_USER="shqperff"
+# LOCAL_DIR_WWW="/home/${WWW_USER}/public_html"
+RSYNC_MODS="--max-size=4m --include=typo3logs*/ --exclude=**/typo3logs*/** --include=typo3temp_old/ --exclude=**/typo3temp_old/** --include=ACforums/ --exclude=**/ACforums/** --include=x/ --exclude=**/x/** --include=ox*/ --exclude=**/ox*/** --include=CINReports/ --exclude=**/CINReports/** --include=11122007/ --exclude=**/11122007/** --include=*old_version/ --exclude=**/*old_version/**"
+
+source ~/.skel/scripts/live2local.sh
+l2l_site_typo3
+l2l_do_sync ${@}
