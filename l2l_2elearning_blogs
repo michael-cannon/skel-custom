@@ -9,7 +9,7 @@
 DOMAIN_NAME="blogs.2elearning.com"
 REMOTE_SERVER="elearni@2elearning.com"
 REMOTE_DIR_WWW="/home/elearni/public_html/blogs"
-RSYNC_MODS="--max-size=2m"
+RSYNC_MODS="--max-size=4m"
 
 # load live2local function helpers
 source ~/.skel/scripts/live2local.sh
