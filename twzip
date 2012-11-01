@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cd ~/Downloads
+git clone ssh://git_peimic@peimic.git.cloudforge.com/testimonialswidgetpremium.git
+cp -r testimonialswidgetpremium testimonials-widget-premium
+cd testimonials-widget-premium
+rm -rf .git
+cd ..
+rm -f testimonials-widget-premium.zip
+zip -r testimonials-widget-premium.zip testimonials-widget-premium/
+rm -rf testimonialswidgetpremium testimonials-widget-premium
