@@ -6,9 +6,10 @@
 # @version $Id: l2l_chinaconnectnow,v 1.2 2011/09/25 11:19:23 peimic.comprock Exp $
 
 # configuration vars
-REMOTE_SERVER="lpdengin@lpdengineering.aihr.us"
+REMOTE_SERVER="server53.wowrack.com"
 DOMAIN_USER="lpdengin"
-DOMAIN_NAME="lpdengineering.aihr.us"
+DOMAIN_NAME="lpdengineering.com"
+USE_FTP=1
 
 # load live2local function helpers
 source ~/.skel/scripts/live2local.sh
