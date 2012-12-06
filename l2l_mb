@@ -7,6 +7,7 @@
 
 # configuration vars
 DOMAIN_NAME="mediaburn.org"
+LOCAL_DIR_WWW="/Users/michael/Sites/mb"
 DOMAIN_USER="fitvaihr"
 
 # load live2local function helpers
