@@ -24,5 +24,4 @@ DB_NAME=${DB_NAME2}
 DB_PW=${DB_PW2}
 DB_USER=${DB_USER2}
 
-l2l_display "add crm app"
-# l2l_do_db
+l2l_do_db
