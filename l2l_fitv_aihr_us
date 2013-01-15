@@ -14,8 +14,6 @@ source ~/.skel/scripts/live2local.sh
 
 # LOCAL_DB_MODS[1]="UPDATE wp_2_options SET option_value = 'http://typo3vagabond.localhost/' WHERE option_value LIKE 'http://typo3vagabond.com/';"
 
-# LOCAL_MODS[1]="open http://typo3vagabond.localhost/wp-admin/plugins.php?plugin_status=active"
-
 # RSYNC_MODS="--max-size=2m --include=store/ --exclude=**/store/** --include=MediaContent/ --exclude=**/MediaContent/** --include=pdf/ --exclude=**/pdf/**"
 RSYNC_MODS="--include=dev/ --exclude=**/dev/**"
 

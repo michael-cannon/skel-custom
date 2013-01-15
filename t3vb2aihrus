@@ -1,5 +1,7 @@
 perl -pi -e "s#hire-michael#michael-cannons-resume#g" *.txt *.php
 perl -pi -e "s#michael\@typo3vagabond.com#mc\@aihr.us#g" *.txt *.php
+perl -pi -e "s#typo3-vagabond-testimonials#about-aihrus/testimonials#g" *.txt *.php
 perl -pi -e "s#typo3vagabond.com/about-typo3-vagabond#aihr.us/about-aihrus#g" *.php *.txt
 perl -pi -e "s#typo3vagabond.com/contact-typo3vagabond#aihr.us/contact-aihrus#g" *.php *.txt
 perl -pi -e "s#typo3vagabond.com\">TYPO3Vagabond.com#aihr.us\">Aihr.us#g" *.php *.txt
+perl -pi -e "s#typo3vagabond.com#aihr.us#g" *.php *.txt

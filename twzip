@@ -24,3 +24,9 @@ rm -f testimonials-widget-premium.zip
 zip -r testimonials-widget-premium.zip testimonials-widget-premium
 
 rm -rf testimonials-widget-premium
+
+scp -r -p -C ~/Downloads/testimonials-widget-premium.zip aihrus@aihr.us:~/subdomains/updates/update/.
+
+echo
+echo scp ~/Sites/wp/wp-content/plugins/testimonials-widget-premium/packages.php aihrus@aihr.us:~/subdomains/updates/packages.php
+echo
