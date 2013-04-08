@@ -5,41 +5,9 @@
 #
 # @author Michael Cannon <mc@aihr.us>
 
-DIR_SITES="${HOME}/Sites"
-SITE_WP="${DIR_SITES}/wp"
-SITE_WP_PLUGINS="${SITE_WP}/wp-content/plugins"
-
-PLUGINS="testimonials-widget
+PLUGINS="
+testimonials-widget
 testimonials-widget-premium
-flickr-shortcode-importer
-typo3-importer"
+"
 
-for PLUGIN in ${PLUGINS}
-do
-	DIR_PLUGIN="${SITE_WP_PLUGINS}/${PLUGIN}"
-
-	if [[ ! -e ${DIR_PLUGIN} ]]
-	then
-		continue
-	fi
-
-	cd ${DIR_PLUGIN}
-
-	echo Prepare plugin ${PLUGIN} at ${DIR_PLUGIN}
-
-	FILES=`find . -type f -name "*.php"`
-
-	for FILE in ${FILES}
-	do
-		echo Update text domain in ${FILE}
-		php ${SITE_WP_PLUGINS}/i18n.svn.wordpress.org/add-textdomain.php -i ${PLUGIN} ${FILE}
-		# clean up text domain spacing
-		# `' , 'testimonials-widget-premium')` to `', 'testimonials-widget-premium' )`
-		perl -pi -e "s#('|\") , '${PLUGIN}'\s?\)#\1, '${PLUGIN}' )#g" ${FILE}
-	done
-
-	echo Update localization to languages/${PLUGIN}.pot
-	php ${SITE_WP_PLUGINS}/i18n.svn.wordpress.org/makepot.php wp-plugin ${DIR_PLUGIN} languages/${PLUGIN}.pot
-
-	echo
-done
+wpprep tw

@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# Prepare Testimonials Widget and Testimonials Widget Premium WordPress
-# plugins for release
+# Localize WordPress plugins for release
 #
 # @author Michael Cannon <mc@aihr.us>
 
@@ -9,10 +8,26 @@ DIR_SITES="${HOME}/Sites"
 SITE_WP="${DIR_SITES}/wp"
 SITE_WP_PLUGINS="${SITE_WP}/wp-content/plugins"
 
-PLUGINS="testimonials-widget
-testimonials-widget-premium
-flickr-shortcode-importer
-typo3-importer"
+case "${1}" in
+	"tw" )
+		PLUGINS="
+		testimonials-widget
+		testimonials-widget-premium
+		"
+		;;
+esac
+
+if [[ -z ${PLUGINS} ]]
+then
+	PLUGINS="
+	flickr-shortcode-importer
+	testimonials-widget
+	testimonials-widget-premium
+	typo3-importer
+	"
+fi
+
+echo
 
 for PLUGIN in ${PLUGINS}
 do
