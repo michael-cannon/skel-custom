@@ -3,22 +3,28 @@
 # Tests for Testimonials Widget and Testimonials Widget Premium WordPress
 # plugins
 #
+# When adding tests, make sure to escape &
+#
 # @author Michael Cannon <mc@aihr.us>
+
+echo
 
 echo Do they show up in plugins?
 open http://wp.localhost/wp-admin/plugins.php
 
 echo Does plugin seach work?
-open http://wp.localhost/wp-admin/network/plugin-install.php?s=schema-creator
+open http://wp.localhost/wp-admin/network/plugin-install.php?tab=search\&s=schema-creator\&plugin-search-input=Search+Plugins
+
+echo Does premium setting show up?
+open http://wp.localhost/wp-admin/edit.php?post_type=testimonials-widget\&page=testimonialswidget_settings
 
 echo Do widget options work?
 open http://wp.localhost/wp-admin/widgets.php
-
-echo Does premium setting show up?
-open http://wp.localhost/wp-admin/edit.php?post_type=testimonials-widget&page=testimonialswidget_settings
 
 echo Do shortcodes work?
 open http://wp.localhost/tw-testing/
 
 echo Does form work?
 open http://wp.localhost/twp-form/
+
+echo
