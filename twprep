@@ -1,24 +1,45 @@
 #!/bin/bash
 
-# Tests for Testimonials Widget and Testimonials Widget Premium WordPress
-# plugins
+# Prepare Testimonials Widget and Testimonials Widget Premium WordPress
+# plugins for release
 #
 # @author Michael Cannon <mc@aihr.us>
 
-echo Do they show up in plugins?
-open http://wp.localhost/wp-admin/plugins.php
+DIR_SITES="${HOME}/Sites"
+SITE_WP="${DIR_SITES}/wp"
+SITE_WP_PLUGINS="${SITE_WP}/wp-content/plugins"
 
-echo Does plugin seach work?
-open http://wp.localhost/wp-admin/network/plugin-install.php?s=schema-creator
+PLUGINS="testimonials-widget
+testimonials-widget-premium
+flickr-shortcode-importer
+typo3-importer"
 
-echo Do widget options work?
-open http://wp.localhost/wp-admin/widgets.php
+for PLUGIN in ${PLUGINS}
+do
+	DIR_PLUGIN="${SITE_WP_PLUGINS}/${PLUGIN}"
 
-echo Does premium setting show up?
-open http://wp.localhost/wp-admin/edit.php?post_type=testimonials-widget&page=testimonialswidget_settings
+	if [[ ! -e ${DIR_PLUGIN} ]]
+	then
+		continue
+	fi
 
-echo Do shortcodes work?
-open http://wp.localhost/tw-testing/
+	cd ${DIR_PLUGIN}
 
-echo Does form work?
-open http://wp.localhost/twp-form/
+	echo Prepare plugin ${PLUGIN} at ${DIR_PLUGIN}
+
+	FILES=`find . -type f -name "*.php"`
+
+	for FILE in ${FILES}
+	do
+		echo Update text domain in ${FILE}
+		php ${SITE_WP_PLUGINS}/i18n.svn.wordpress.org/add-textdomain.php -i ${PLUGIN} ${FILE}
+		# clean up text domain spacing
+		# `' , 'testimonials-widget-premium')` to `', 'testimonials-widget-premium' )`
+		perl -pi -e "s#('|\") , '${PLUGIN}'\s?\)#\1, '${PLUGIN}' )#g" ${FILE}
+	done
+
+	echo Update localization to languages/${PLUGIN}.pot
+	php ${SITE_WP_PLUGINS}/i18n.svn.wordpress.org/makepot.php wp-plugin ${DIR_PLUGIN} languages/${PLUGIN}.pot
+
+	echo
+done
