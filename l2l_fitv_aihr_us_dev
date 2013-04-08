@@ -6,8 +6,9 @@
 # @version $Id: l2l_peimic,v 1.3 2011/09/26 09:59:45 peimic.comprock Exp $
 
 # configuration vars
-DOMAIN_NAME="fitv.aihr.us"
+DOMAIN_NAME="dev.fitv.aihr.us"
 DOMAIN_USER="fitvaihr"
+REMOTE_DIR_WWW="/home/fitvaihr/subdomain/dev"
 
 # load live2local function helpers
 source ~/.skel/scripts/live2local.sh
@@ -15,6 +16,7 @@ source ~/.skel/scripts/live2local.sh
 # LOCAL_DB_MODS[1]="UPDATE wp_2_options SET option_value = 'http://typo3vagabond.localhost/' WHERE option_value LIKE 'http://typo3vagabond.com/';"
 LOCAL_MODS[1]="perl -pi -e \"s#^.*(define\(\s?'WP_HOME'.*$)#\1#g\" wp-config.php"
 LOCAL_MODS[2]="perl -pi -e \"s#^.*(define\(\s?'WP_SITEURL'.*$)#\1#g\" wp-config.php"
+LOCAL_MODS[3]="perl -pi -e \"s#dev.fitv.aihr.us#dev.fitv.localhost#g\" wp-config.php"
 
 # RSYNC_MODS="--max-size=2m --include=store/ --exclude=**/store/** --include=MediaContent/ --exclude=**/MediaContent/** --include=pdf/ --exclude=**/pdf/**"
 RSYNC_MODS="--include=dev/ --exclude=**/dev/**"
