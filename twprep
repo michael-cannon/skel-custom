@@ -5,9 +5,4 @@
 #
 # @author Michael Cannon <mc@aihr.us>
 
-PLUGINS="
-testimonials-widget
-testimonials-widget-premium
-"
-
 wpprep tw

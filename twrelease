@@ -10,6 +10,10 @@ twzip
 
 echo
 
+# push to Aihr.us
+rsync -Pahz -e ssh --stats --delete-excluded --exclude=**/.git/** --exclude=**/.svn/** --exclude=**/zzz/** ~/Sites/wp/wp-content/plugins/testimonials-widget* aihrus@aihr.us:~/public_html/wp-content/plugins/.
+
+# push svn and do WordPress release
 cd ~/code/svn.wordpress
 svn cleanup .
 svn up --force

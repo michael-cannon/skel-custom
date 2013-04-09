@@ -33,3 +33,10 @@ open http://wp.localhost/wp-admin/post-new.php?post_type=testimonials-widget
 
 echo Does single view work?
 open http://wp.localhost/testimonial/robert-harm/
+
+echo
+rsync -Pahz -e ssh --stats --delete-excluded --exclude=**/.git/** --exclude=**/.svn/** --exclude=**/zzz/** ~/Sites/wp/wp-content/plugins/testimonials-widget* aihrus@aihr.us:~/public_html/wp-content/plugins/.
+echo
+
+echo How does live look?
+open http://aihr.us/good-work-deserves-good-words-testimonials-widget-examples/
