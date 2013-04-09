@@ -7,7 +7,8 @@
 #
 # @author Michael Cannon <mc@aihr.us>
 
-echo
+echo Any blatant errors?
+open http://wp.localhost/wp-admin/
 
 echo Do they show up in plugins?
 open http://wp.localhost/wp-admin/plugins.php
@@ -27,4 +28,8 @@ open http://wp.localhost/tw-testing/
 echo Does form work?
 open http://wp.localhost/twp-form/
 
-echo
+echo Does add view work?
+open http://wp.localhost/wp-admin/post-new.php?post_type=testimonials-widget
+
+echo Does single view work?
+open http://wp.localhost/testimonial/robert-harm/

@@ -1,60 +1,40 @@
 #!/bin/bash
 
-# Pull and push Testimonials Widget Premium
+# Prepare Testimonials Widget and Testimonials Widget Premium for release
 #
 # @author Michael Cannon <mc@aihr.us>
 
-cd ~/Downloads
+twzip
 
-if [[ -d testimonials-widget-premium ]]
-then
-	rm -rf testimonials-widget-premium
-fi
+# TODO generalize
 
-if [[ -d testimonialswidgetpremium ]]
-then
-	rm -rf testimonialswidgetpremium
-fi
+echo
 
-git clone ssh://git_peimic@peimic.git.cloudforge.com/testimonialswidgetpremium.git
+cd ~/code/svn.wordpress
+svn cleanup .
+svn up --force
 
-mv testimonialswidgetpremium testimonials-widget-premium
-cd testimonials-widget-premium
-rm -rf .git
+# TODO read readme head to parse out version
+# TODO rcp trunk to tags
 
-cd ~/Downloads
+scp -r -p -C ~/Downloads/testimonials-widget-premium.zip aihrus@aihr.us:~/subdomains/updates/update/.
+scp -r -p -C ~/Downloads/testimonials-widget-premium.zip aihrus@aihr.us:~/public_html/wp-content/uploads/edd/2012/11/.
 
-rm -f testimonials-widget-premium.zip
-zip -r testimonials-widget-premium.zip testimonials-widget-premium
+open http://wordpress.org/extend/plugins/about/validator/
 
-rm -rf testimonials-widget-premium
+mvim ~/Sites/wp/wp-content/plugins/testimonials-widget/changelog.txt
+open http://aihr.us/wp-admin/post.php?post=16105\&action=edit
 
-if [[ -z ${1} ]]
-then
-	scp -r -p -C ~/Downloads/testimonials-widget-premium.zip aihrus@aihr.us:~/subdomains/updates/update/.
-	scp -r -p -C ~/Downloads/testimonials-widget-premium.zip aihrus@aihr.us:~/public_html/wp-content/uploads/edd/2012/11/.
+mvim ~/Sites/wp/wp-content/plugins/testimonials-widget-premium/changelog.txt
+open http://aihr.us/wp-admin/post.php?post=16129\&action=edit
 
-	open http://wordpress.org/extend/plugins/about/validator/
+mvim ~/Sites/wp/wp-content/plugins/testimonials-widget-premium/readme.txt
+open http://aihr.us/wp-admin/post.php?post=14635\&action=edit
+open http://aihr.us/wp-admin/post.php?post=14714\&action=edit
 
-	echo
-	echo mvim ~/Sites/wp/wp-content/plugins/testimonials-widget/changelog.txt
-	open http://aihr.us/wp-admin/post.php?post=16105\&action=edit
-	echo
+mvim ~/Sites/wp/wp-content/plugins/testimonials-widget-premium/zzz/packages.php
 
-	echo
-	echo mvim ~/Sites/wp/wp-content/plugins/testimonials-widget-premium/changelog.txt
-	open http://aihr.us/wp-admin/post.php?post=16129\&action=edit
-	echo
+echo scp ~/Sites/wp/wp-content/plugins/testimonials-widget-premium/zzz/packages.php aihrus@aihr.us:~/subdomains/updates/packages.php
+echo
 
-	echo mvim ~/Sites/wp/wp-content/plugins/testimonials-widget-premium/readme.txt
-	open http://aihr.us/wp-admin/post.php?post=14635\&action=edit
-	open http://aihr.us/wp-admin/post.php?post=14714\&action=edit
-	echo
-
-	echo mvim ~/Sites/wp/wp-content/plugins/testimonials-widget-premium/zzz/packages.php
-	echo scp ~/Sites/wp/wp-content/plugins/testimonials-widget-premium/zzz/packages.php aihrus@aihr.us:~/subdomains/updates/packages.php
-	echo
-
-	open http://aihr.us/wp-admin/update-core.php
-
-fi
+open http://aihr.us/wp-admin/update-core.php

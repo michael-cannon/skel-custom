@@ -1,14 +1,28 @@
 #!/bin/bash
 
-# Prepare Testimonials Widget Premium for release or beta testing
+# Prepare WordPress plugins for release or beta testing
 #
 # @author Michael Cannon <mc@aihr.us>
 
 PATH_DOWNLOADS="${HOME}/Downloads"
-PLUGINS="
-testimonials-widget
-testimonials-widget-premium
-"
+
+case "${1}" in
+	"tw" )
+		PLUGINS="
+		testimonials-widget
+		testimonials-widget-premium
+		"
+esac
+
+if [[ -z ${PLUGINS} ]]
+then
+	PLUGINS="
+	flickr-shortcode-importer
+	testimonials-widget
+	testimonials-widget-premium
+	typo3-importer
+	"
+fi
 
 echo
 
@@ -21,14 +35,13 @@ do
 		rm -rf ${PLUGIN}
 	fi
 
-	if [[ "testimonials-widget" == ${PLUGIN} ]]
-	then
-		echo Prepare Testimonials Widget 
-		svn co http://plugins.svn.wordpress.org/${PLUGIN}/trunk ${PLUGIN}
-	elif [[ "testimonials-widget-premium" == ${PLUGIN} ]]
+	if [[ "testimonials-widget-premium" == ${PLUGIN} ]]
 	then
 		echo Prepare Testimonials Widget Premium
 		git clone ssh://git_peimic@peimic.git.cloudforge.com/testimonialswidgetpremium.git ${PLUGIN}
+	else
+		echo Prepare ${PLUGIN} 
+		svn co http://plugins.svn.wordpress.org/${PLUGIN}/trunk ${PLUGIN}
 	fi
 
 	cd ${PLUGIN}

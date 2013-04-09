@@ -1,18 +1,22 @@
 #!/bin/bash
 
-# Localize WordPress plugins for release
+# Localization and other preparation for WordPress plugins release
 #
 # @author Michael Cannon <mc@aihr.us>
 
 DIR_SITES="${HOME}/Sites"
 SITE_WP="${DIR_SITES}/wp"
 SITE_WP_PLUGINS="${SITE_WP}/wp-content/plugins"
+URL_VALIDATE="http://wordpress.org/extend/plugins/about/validator/"
 
 case "${1}" in
 	"tw" )
 		PLUGINS="
 		testimonials-widget
 		testimonials-widget-premium
+		"
+		SCRIPTS="
+		twtest
 		"
 		;;
 esac
@@ -25,6 +29,7 @@ then
 	testimonials-widget-premium
 	typo3-importer
 	"
+	SCRIPTS=""
 fi
 
 echo
@@ -42,10 +47,13 @@ do
 
 	echo Prepare plugin ${PLUGIN} at ${DIR_PLUGIN}
 
-	FILES=`find . -type f -name "*.php"`
+	FILES=`find . -type f \( -name "*.php" -o -name "*.inc" \)`
 
 	for FILE in ${FILES}
 	do
+		# PHP compile test
+		php -l ${FILE}
+
 		echo Update text domain in ${FILE}
 		php ${SITE_WP_PLUGINS}/i18n.svn.wordpress.org/add-textdomain.php -i ${PLUGIN} ${FILE}
 		# clean up text domain spacing
@@ -55,6 +63,25 @@ do
 
 	echo Update localization to languages/${PLUGIN}.pot
 	php ${SITE_WP_PLUGINS}/i18n.svn.wordpress.org/makepot.php wp-plugin ${DIR_PLUGIN} languages/${PLUGIN}.pot
+	echo
 
+##	TXTS=`ls *.txt`
+##
+##	for TXT in ${TXTS}
+##	do
+##		echo Prepare ${TXT} for validation
+##		# read TXT contents
+##		# convert TXT to _POST
+##		# submit URL
+##		# open ${URL_VALIDATE} ${TXT}
+##	done
+##
+##	echo
+done
+
+for SCRIPT in ${SCRIPTS}
+do
+	echo
+	${SCRIPT}
 	echo
 done
