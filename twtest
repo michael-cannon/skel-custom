@@ -7,10 +7,10 @@
 #
 # @author Michael Cannon <mc@aihr.us>
 
-source ~/.skel/bin/custom/wpinit tw
 
-wpprep tw
+wplocalize tw
 wpcompile tw
+
 
 echo Any blatant errors?
 open http://wp.localhost/wp-admin/
@@ -40,7 +40,7 @@ echo Does single view work?
 open http://wp.localhost/testimonial/robert-harm/
 
 echo
-rsync -Pahz -e ssh --stats --delete-excluded --exclude=**/.git/** --exclude=**/.svn/** --exclude=**/zzz/** ~/Sites/wp/wp-content/plugins/testimonials-widget* aihrus@aihr.us:~/public_html/wp-content/plugins/.
+wppush tw
 echo
 
 echo How does live look?

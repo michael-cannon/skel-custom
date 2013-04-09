@@ -7,6 +7,15 @@
 source ~/.skel/bin/custom/wpinit ${@}
 echo
 
+
+if [[ -z ${2} ]]
+then
+	DO_COMMIT=
+else
+	DO_COMMIT=1
+fi
+
+
 for PLUGIN in ${PLUGINS}
 do
 	DIR_PLUGIN="${SITE_WP_PLUGINS}/${PLUGIN}"
@@ -31,5 +40,19 @@ do
 
 	echo Update localization to languages/${PLUGIN}.pot
 	php ${SITE_WP_PLUGINS}/i18n.svn.wordpress.org/makepot.php wp-plugin ${DIR_PLUGIN} languages/${PLUGIN}.pot
+	echo
+
+	if [[ ${DO_COMMIT} ]]
+	then
+		if [[ "testimonials-widget-premium" == ${PLUGIN} ]]
+		then
+			git add -u
+			git commit -m "Update localization"
+			git push origin master
+		else
+			svn commit -m "Update localization"
+		fi
+	fi
+
 	echo
 done

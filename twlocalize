@@ -1,8 +1,0 @@
-#!/bin/bash
-
-# Prepare Testimonials Widget and Testimonials Widget Premium WordPress
-# plugins for release
-#
-# @author Michael Cannon <mc@aihr.us>
-
-wplocalize tw

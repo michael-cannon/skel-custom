@@ -4,16 +4,17 @@
 #
 # @author Michael Cannon <mc@aihr.us>
 
-# source ~/.skel/bin/custom/wpinit
-
-twzip
-
 # TODO generalize
 
+KEY="tw"
+
+source ~/.skel/bin/custom/wpinit ${KEY}
 echo
 
-# push to Aihr.us
-rsync -Pahz -e ssh --stats --delete-excluded --exclude=**/.git/** --exclude=**/.svn/** --exclude=**/zzz/** ~/Sites/wp/wp-content/plugins/testimonials-widget* aihrus@aihr.us:~/public_html/wp-content/plugins/.
+wplocalize ${KEY} commit
+wpcompile ${KEY}
+wpzip ${KEY}
+wppush ${KEY}
 
 # push svn and do WordPress release
 cd ~/code/svn.wordpress
@@ -23,8 +24,8 @@ svn up --force
 # TODO read readme head to parse out version
 # TODO rcp trunk to tags
 
-scp -r -p -C ~/Downloads/testimonials-widget-premium.zip aihrus@aihr.us:~/subdomains/updates/update/.
-scp -r -p -C ~/Downloads/testimonials-widget-premium.zip aihrus@aihr.us:~/public_html/wp-content/uploads/edd/2012/11/.
+${CMD_SCP} ~/Downloads/testimonials-widget-premium.zip aihrus@aihr.us:~/subdomains/updates/update/.
+${CMD_SCP} ~/Downloads/testimonials-widget-premium.zip aihrus@aihr.us:~/public_html/wp-content/uploads/edd/2012/11/.
 
 ##	URL_VALIDATE="http://wordpress.org/extend/plugins/about/validator/"
 ##	TXTS=`ls *.txt`
@@ -54,7 +55,7 @@ open http://aihr.us/wp-admin/post.php?post=14714\&action=edit
 
 mvim ~/Sites/wp/wp-content/plugins/testimonials-widget-premium/zzz/packages.php
 
-echo scp ~/Sites/wp/wp-content/plugins/testimonials-widget-premium/zzz/packages.php aihrus@aihr.us:~/subdomains/updates/packages.php
+echo ${CMD_SCP} ~/Sites/wp/wp-content/plugins/testimonials-widget-premium/zzz/packages.php aihrus@aihr.us:~/subdomains/updates/packages.php
 echo
 
 open http://aihr.us/wp-admin/update-core.php

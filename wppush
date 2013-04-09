@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# PHP compilation tests for  WordPress plugins
+# Push WordPress plugins to Aihrus
 #
 # @author Michael Cannon <mc@aihr.us>
 
@@ -15,14 +15,7 @@ do
 		continue
 	fi
 
-	cd ${DIR_PLUGIN}
-
-	FILES=`find . -type f \( -name "*.php" -o -name "*.inc" \)`
-	for FILE in ${FILES}
-	do
-		# PHP compile test
-		php -l ${FILE}
-	done
+	${CMD_RSYNC} ${DIR_PLUGIN} ${SSH_AIHRUS}:${PATH_AIHRUS}/${DIR_PLUGINS}/.
 
 	echo
 done

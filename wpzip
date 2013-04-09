@@ -1,11 +1,10 @@
 #!/bin/bash
 
-# Prepare WordPress plugins for release or beta testing
+# Pull and compress WordPress plugins for release or beta testing
 #
 # @author Michael Cannon <mc@aihr.us>
 
 source ~/.skel/bin/custom/wpinit ${@}
-
 echo
 
 for PLUGIN in ${PLUGINS}

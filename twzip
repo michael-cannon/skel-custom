@@ -1,7 +1,0 @@
-#!/bin/bash
-
-# Prepare Testimonials Widget Premium for release or beta testing
-#
-# @author Michael Cannon <mc@aihr.us>
-
-wpzip tw
