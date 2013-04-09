@@ -1,0 +1,60 @@
+#!/bin/bash
+
+# Pull and push Testimonials Widget Premium
+#
+# @author Michael Cannon <mc@aihr.us>
+
+cd ~/Downloads
+
+if [[ -d testimonials-widget-premium ]]
+then
+	rm -rf testimonials-widget-premium
+fi
+
+if [[ -d testimonialswidgetpremium ]]
+then
+	rm -rf testimonialswidgetpremium
+fi
+
+git clone ssh://git_peimic@peimic.git.cloudforge.com/testimonialswidgetpremium.git
+
+mv testimonialswidgetpremium testimonials-widget-premium
+cd testimonials-widget-premium
+rm -rf .git
+
+cd ~/Downloads
+
+rm -f testimonials-widget-premium.zip
+zip -r testimonials-widget-premium.zip testimonials-widget-premium
+
+rm -rf testimonials-widget-premium
+
+if [[ -z ${1} ]]
+then
+	scp -r -p -C ~/Downloads/testimonials-widget-premium.zip aihrus@aihr.us:~/subdomains/updates/update/.
+	scp -r -p -C ~/Downloads/testimonials-widget-premium.zip aihrus@aihr.us:~/public_html/wp-content/uploads/edd/2012/11/.
+
+	open http://wordpress.org/extend/plugins/about/validator/
+
+	echo
+	echo mvim ~/Sites/wp/wp-content/plugins/testimonials-widget/changelog.txt
+	open http://aihr.us/wp-admin/post.php?post=16105\&action=edit
+	echo
+
+	echo
+	echo mvim ~/Sites/wp/wp-content/plugins/testimonials-widget-premium/changelog.txt
+	open http://aihr.us/wp-admin/post.php?post=16129\&action=edit
+	echo
+
+	echo mvim ~/Sites/wp/wp-content/plugins/testimonials-widget-premium/readme.txt
+	open http://aihr.us/wp-admin/post.php?post=14635\&action=edit
+	open http://aihr.us/wp-admin/post.php?post=14714\&action=edit
+	echo
+
+	echo mvim ~/Sites/wp/wp-content/plugins/testimonials-widget-premium/zzz/packages.php
+	echo scp ~/Sites/wp/wp-content/plugins/testimonials-widget-premium/zzz/packages.php aihrus@aihr.us:~/subdomains/updates/packages.php
+	echo
+
+	open http://aihr.us/wp-admin/update-core.php
+
+fi
