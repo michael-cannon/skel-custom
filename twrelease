@@ -4,6 +4,8 @@
 #
 # @author Michael Cannon <mc@aihr.us>
 
+# source ~/.skel/bin/custom/wpinit
+
 twzip
 
 # TODO generalize
@@ -24,6 +26,20 @@ svn up --force
 scp -r -p -C ~/Downloads/testimonials-widget-premium.zip aihrus@aihr.us:~/subdomains/updates/update/.
 scp -r -p -C ~/Downloads/testimonials-widget-premium.zip aihrus@aihr.us:~/public_html/wp-content/uploads/edd/2012/11/.
 
+##	URL_VALIDATE="http://wordpress.org/extend/plugins/about/validator/"
+##	TXTS=`ls *.txt`
+##
+##	for TXT in ${TXTS}
+##	do
+##		echo Prepare ${TXT} for validation
+##		# read TXT contents
+##		# convert TXT to _POST
+##		# submit URL
+##		# open ${URL_VALIDATE} ${TXT}
+##	done
+##
+##	echo
+
 open http://wordpress.org/extend/plugins/about/validator/
 
 mvim ~/Sites/wp/wp-content/plugins/testimonials-widget/changelog.txt
@@ -42,3 +58,10 @@ echo scp ~/Sites/wp/wp-content/plugins/testimonials-widget-premium/zzz/packages.
 echo
 
 open http://aihr.us/wp-admin/update-core.php
+
+for SCRIPT in ${SCRIPTS}
+do
+	echo
+	${SCRIPT}
+	echo
+done

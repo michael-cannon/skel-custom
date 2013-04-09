@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# PHP compilation tests for  WordPress plugins
+#
+# @author Michael Cannon <mc@aihr.us>
+
+source ~/.skel/bin/custom/wpinit ${@}
+echo
+
+for PLUGIN in ${PLUGINS}
+do
+	DIR_PLUGIN="${SITE_WP_PLUGINS}/${PLUGIN}"
+	if [[ ! -e ${DIR_PLUGIN} ]]
+	then
+		continue
+	fi
+
+	cd ${DIR_PLUGIN}
+
+	FILES=`find . -type f \( -name "*.php" -o -name "*.inc" \)`
+	for FILE in ${FILES}
+	do
+		# PHP compile test
+		php -l ${FILE}
+	done
+done

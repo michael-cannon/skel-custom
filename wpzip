@@ -4,31 +4,13 @@
 #
 # @author Michael Cannon <mc@aihr.us>
 
-PATH_DOWNLOADS="${HOME}/Downloads"
-
-case "${1}" in
-	"tw" )
-		PLUGINS="
-		testimonials-widget
-		testimonials-widget-premium
-		"
-esac
-
-if [[ -z ${PLUGINS} ]]
-then
-	PLUGINS="
-	flickr-shortcode-importer
-	testimonials-widget
-	testimonials-widget-premium
-	typo3-importer
-	"
-fi
+source ~/.skel/bin/custom/wpinit ${@}
 
 echo
 
 for PLUGIN in ${PLUGINS}
 do
-	cd ${PATH_DOWNLOADS}
+	cd ${DIR_DOWNLOADS}
 
 	if [[ -d ${PLUGIN} ]]
 	then
@@ -47,7 +29,7 @@ do
 	cd ${PLUGIN}
 	find . -type d \( -name ".git" -o -name ".svn" \) -exec rm -rf {} \;
 
-	cd ${PATH_DOWNLOADS}
+	cd ${DIR_DOWNLOADS}
 
 	FILE_ZIP="${PLUGIN}.zip"
 	if [[ -e ${FILE_ZIP} ]]
