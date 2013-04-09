@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# Prepare Testimonials Widget Premium for release or beta testing
+#
+# @author Michael Cannon <mc@aihr.us>
+
+PATH_DOWNLOADS="${HOME}/Downloads"
+PLUGINS="
+testimonials-widget
+testimonials-widget-premium
+"
+
+echo
+
+for PLUGIN in ${PLUGINS}
+do
+	cd ${PATH_DOWNLOADS}
+
+	if [[ -d ${PLUGIN} ]]
+	then
+		rm -rf ${PLUGIN}
+	fi
+
+	if [[ "testimonials-widget" == ${PLUGIN} ]]
+	then
+		echo Prepare Testimonials Widget 
+		svn co http://plugins.svn.wordpress.org/${PLUGIN}/trunk ${PLUGIN}
+	elif [[ "testimonials-widget-premium" == ${PLUGIN} ]]
+	then
+		echo Prepare Testimonials Widget Premium
+		git clone ssh://git_peimic@peimic.git.cloudforge.com/testimonialswidgetpremium.git ${PLUGIN}
+	fi
+
+	cd ${PLUGIN}
+	find . -type d \( -name ".git" -o -name ".svn" \) -exec rm -rf {} \;
+
+	cd ${PATH_DOWNLOADS}
+
+	FILE_ZIP="${PLUGIN}.zip"
+	if [[ -e ${FILE_ZIP} ]]
+	then
+		rm -f ${FILE_ZIP}
+	fi
+
+	zip -r ${FILE_ZIP} ${PLUGIN}
+	rm -rf ${PLUGIN}
+
+	echo
+done
