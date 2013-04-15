@@ -6,7 +6,15 @@
 
 # TODO generalize
 
+# TODO read readme head to parse out version
+if [[ -z ${1} ]]
+then
+	echo "What's the version number?"
+	exit
+fi
+
 KEY="tw"
+VERSION=${1}
 
 source ~/.skel/bin/custom/wpinit ${KEY}
 echo
@@ -18,15 +26,16 @@ wppush ${KEY}
 
 # push svn and do WordPress release
 cd ~/code/svn.wordpress
+cd testimonials-widget
 svn cleanup .
 svn up --force
-
-# TODO read readme head to parse out version
-# TODO rcp trunk to tags
+svn cp trunk tags/${VERSION}
+svn ci -m "Release version ${VERSION}"
 
 ${CMD_SCP} ~/Downloads/testimonials-widget-premium.zip aihrus@aihr.us:~/subdomains/updates/update/.
 ${CMD_SCP} ~/Downloads/testimonials-widget-premium.zip aihrus@aihr.us:~/public_html/wp-content/uploads/edd/2012/11/.
 
+# TODO auto feed our txt files to WP validator
 ##	URL_VALIDATE="http://wordpress.org/extend/plugins/about/validator/"
 ##	TXTS=`ls *.txt`
 ##

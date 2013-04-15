@@ -11,6 +11,13 @@
 wplocalize tw
 wpcompile tw
 
+# TODO coding standard checks
+
+if [[ -n ${1} ]]
+then
+	exit
+fi
+
 
 echo Any blatant errors?
 open http://wp.localhost/wp-admin/
