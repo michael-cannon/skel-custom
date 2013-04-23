@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Prepare WordPress plugins for release
+#
+# @author Michael Cannon <mc@aihr.us>
+
+
+if [[ -z ${1} ]]
+then
+	echo "Which plugin series key?"
+	echo "Ex: tw"
+	exit
+fi
+
+KEY=${1}
+
+source ~/.skel/bin/custom/wpinit ${KEY}
+echo
+
+wplocalize ${KEY}
+wpcompile ${KEY}

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# PHP compilation tests for  WordPress plugins
+# PHP Coding Standard and compilation tests for WordPress plugins
 #
 # @author Michael Cannon <mc@aihr.us>
 
@@ -17,12 +17,34 @@ do
 
 	cd ${DIR_PLUGIN}
 
+	CS_RULESET="${DIR_PLUGIN}/project.ruleset.xml"
+	# add -s to see sniff code used
+	if [[ -e ${CS_RULESET} ]]
+	then
+		# CS_STANDARD="--standard=${CS_RULESET}"
+		CS_STANDARD="-s --standard=${CS_RULESET}"
+	else
+		CS_STANDARD="--standard=/Users/michael/Sites/wp/wp-content/plugins/testimonials-widget/project.ruleset.xml"
+	fi
+
 	FILES=`find . -type f \( -name "*.php" -o -name "*.inc" \)`
 	for FILE in ${FILES}
 	do
+		# apply WordPress Coding Standards
+		wp-phptidy.php replace ${FILE}
+
 		# PHP compile test
 		php -l ${FILE}
 	done
+
+	CS_SNIFFED="000-code-sniffed.txt"
+	if [[ -e ${CS_SNIFFED} ]]
+	then
+		rm ${CS_SNIFFED}
+	fi
+	
+	touch ${CS_SNIFFED}
+	phpcs ${CS_STANDARD} ${DIR_PLUGIN} >> ${CS_SNIFFED}
 
 	echo
 done

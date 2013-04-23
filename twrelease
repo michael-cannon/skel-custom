@@ -20,7 +20,6 @@ source ~/.skel/bin/custom/wpinit ${KEY}
 echo
 
 wplocalize ${KEY} commit
-wpcompile ${KEY}
 wpzip ${KEY}
 wppush ${KEY}
 

@@ -8,8 +8,7 @@
 # @author Michael Cannon <mc@aihr.us>
 
 
-wplocalize tw
-wpcompile tw
+wpprep tw
 
 # TODO coding standard checks
 
