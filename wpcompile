@@ -45,6 +45,7 @@ do
 	
 	touch ${CS_SNIFFED}
 	phpcs ${CS_STANDARD} ${DIR_PLUGIN} >> ${CS_SNIFFED}
+	mvim ${CS_SNIFFED}
 
 	echo
 done
