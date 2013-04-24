@@ -37,7 +37,7 @@ echo Do shortcodes work?
 open http://wp.localhost/tw-testing/
 
 echo Does form work?
-open http://wp.localhost/twp-form/
+open http://wp.localhost/twp-form/?testmode=1
 
 echo Does add view work?
 open http://wp.localhost/wp-admin/post-new.php?post_type=testimonials-widget
