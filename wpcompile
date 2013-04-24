@@ -21,8 +21,8 @@ do
 	# add -s to see sniff code used
 	if [[ -e ${CS_RULESET} ]]
 	then
-		# CS_STANDARD="--standard=${CS_RULESET}"
-		CS_STANDARD="-s --standard=${CS_RULESET}"
+		CS_STANDARD="--standard=${CS_RULESET}"
+		# CS_STANDARD="-s --standard=${CS_RULESET}"
 	else
 		CS_STANDARD="--standard=/Users/michael/Sites/wp/wp-content/plugins/testimonials-widget/project.ruleset.xml"
 	fi

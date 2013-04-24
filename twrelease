@@ -19,8 +19,7 @@ VERSION=${1}
 source ~/.skel/bin/custom/wpinit ${KEY}
 echo
 
-wplocalize ${KEY} commit
-wpzip ${KEY}
+wppackage ${KEY}
 wppush ${KEY}
 
 # push svn and do WordPress release
@@ -61,9 +60,8 @@ mvim ~/Sites/wp/wp-content/plugins/testimonials-widget-premium/readme.txt
 open http://aihr.us/wp-admin/post.php?post=14635\&action=edit
 open http://aihr.us/wp-admin/post.php?post=14714\&action=edit
 
-mvim ~/Sites/wp/wp-content/plugins/testimonials-widget-premium/zzz/packages.php
-
-echo ${CMD_SCP} ~/Sites/wp/wp-content/plugins/testimonials-widget-premium/zzz/packages.php aihrus@aihr.us:~/subdomains/updates/packages.php
+mvim ~/Sites/zzz/testimonials-widget-premium/packages.php
+echo ${CMD_SCP} ~/Sites/zzz/testimonials-widget-premium/packages.php aihrus@aihr.us:~/subdomains/updates/packages.php
 echo
 
 open http://aihr.us/wp-admin/update-core.php

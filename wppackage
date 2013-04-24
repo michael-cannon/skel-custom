@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Prepare WordPress plugins for release
+# Package WordPress plugins for testing or release
 #
 # @author Michael Cannon <mc@aihr.us>
 
@@ -17,5 +17,5 @@ KEY=${1}
 source ~/.skel/bin/custom/wpinit ${KEY}
 echo
 
-wplocalize ${KEY}
-wpcompile ${KEY}
+wplocalize ${KEY} commit
+wpzip ${KEY}

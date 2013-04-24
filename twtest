@@ -45,6 +45,9 @@ open http://wp.localhost/wp-admin/post-new.php?post_type=testimonials-widget
 echo Does single view work?
 open http://wp.localhost/testimonial/robert-harm/
 
+echo Do theme functions work?
+open http://wp.localhost/theme-functions/
+
 echo
 wppush tw
 echo
