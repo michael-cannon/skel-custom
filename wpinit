@@ -6,6 +6,7 @@
 
 CMD_RSYNC="rsync -Pahz -e ssh --stats --delete-excluded --exclude=**/.git/** --exclude=**/.svn/** --exclude=**/zzz/**"
 CMD_SCP="scp -r -p -C"
+CMD_SSH="ssh -t"
 
 DIR_DOWNLOADS="${HOME}/Downloads"
 DIR_PLUGINS="wp-content/plugins"
@@ -16,6 +17,7 @@ DIR_RULESETS="${SITE_WP_PLUGINS}/testimonials-widget/"
 
 SSH_AIHRUS="aihrus@aihr.us"
 PATH_AIHRUS="~/public_html"
+CMD_SSH="${CMD_SSH} ${SSH_AIHRUS}"
 
 case "${1}" in
 	"twa" )

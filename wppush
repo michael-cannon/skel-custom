@@ -16,6 +16,7 @@ do
 	fi
 
 	${CMD_RSYNC} ${DIR_PLUGIN} ${SSH_AIHRUS}:${PATH_AIHRUS}/${DIR_PLUGINS}/.
+	${CMD_SSH} "chmod -R a+rX ${PATH_AIHRUS}/${DIR_PLUGINS}/${PLUGIN}"
 
 	echo
 done
