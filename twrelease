@@ -13,7 +13,7 @@ then
 	exit
 fi
 
-KEY="tw"
+KEY="twa"
 VERSION=${1}
 
 source ~/.skel/bin/custom/wpinit ${KEY}

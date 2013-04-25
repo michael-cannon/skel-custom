@@ -12,14 +12,27 @@ DIR_PLUGINS="wp-content/plugins"
 DIR_SITES="${HOME}/Sites"
 SITE_WP="${DIR_SITES}/wp"
 SITE_WP_PLUGINS="${SITE_WP}/${DIR_PLUGINS}"
+DIR_RULESETS="${SITE_WP_PLUGINS}/testimonials-widget/"
 
 SSH_AIHRUS="aihrus@aihr.us"
 PATH_AIHRUS="~/public_html"
 
 case "${1}" in
+	"twa" )
+		PLUGINS="
+		testimonials-widget
+		testimonials-widget-premium
+		"
+		;;
+
 	"tw" )
 		PLUGINS="
 		testimonials-widget
+		"
+		;;
+
+	"twp" )
+		PLUGINS="
 		testimonials-widget-premium
 		"
 		;;

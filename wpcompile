@@ -17,15 +17,13 @@ do
 
 	cd ${DIR_PLUGIN}
 
-	CS_RULESET="${DIR_PLUGIN}/project.ruleset.xml"
-	# add -s to see sniff code used
-	if [[ -e ${CS_RULESET} ]]
+	FILE_CODE_QA="000-code-qa.txt"
+	if [[ -e ${FILE_CODE_QA} ]]
 	then
-		CS_STANDARD="--standard=${CS_RULESET}"
-		# CS_STANDARD="-s --standard=${CS_RULESET}"
-	else
-		CS_STANDARD="--standard=/Users/michael/Sites/wp/wp-content/plugins/testimonials-widget/project.ruleset.xml"
+		rm ${FILE_CODE_QA}
 	fi
+	
+	touch ${FILE_CODE_QA}
 
 	FILES=`find . -type f \( -name "*.php" -o -name "*.inc" \)`
 	for FILE in ${FILES}
@@ -34,18 +32,31 @@ do
 		wp-phptidy.php replace ${FILE}
 
 		# PHP compile test
-		php -l ${FILE}
+		php -l ${FILE} >> ${FILE_CODE_QA}
 	done
 
-	CS_SNIFFED="000-code-sniffed.txt"
-	if [[ -e ${CS_SNIFFED} ]]
-	then
-		rm ${CS_SNIFFED}
-	fi
-	
-	touch ${CS_SNIFFED}
-	phpcs ${CS_STANDARD} ${DIR_PLUGIN} >> ${CS_SNIFFED}
-	mvim ${CS_SNIFFED}
+	echo >> ${FILE_CODE_QA}
+	echo >> ${FILE_CODE_QA}
+	# code sniffer
+	phpcs --standard=${DIR_RULESETS}/phpcs.ruleset.xml ${DIR_PLUGIN} >> ${FILE_CODE_QA}
+
+	echo >> ${FILE_CODE_QA}
+	echo >> ${FILE_CODE_QA}
+	# copy detector
+	phpcpd ${DIR_PLUGIN} >> ${FILE_CODE_QA}
+
+	echo >> ${FILE_CODE_QA}
+	echo >> ${FILE_CODE_QA}
+	# lines of type of code
+	phploc ${DIR_PLUGIN} >> ${FILE_CODE_QA}
+
+	echo >> ${FILE_CODE_QA}
+	echo >> ${FILE_CODE_QA}
+	# mess detect
+	phpmd ${DIR_PLUGIN} text ${DIR_RULESETS}/phpmd.ruleset.xml >> ${FILE_CODE_QA}
+
+	# open file for review
+	mvim ${FILE_CODE_QA}
 
 	echo
 done
