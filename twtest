@@ -8,7 +8,7 @@
 # @author Michael Cannon <mc@aihr.us>
 
 
-wpprep twa
+wpcompile twa
 
 # TODO coding standard checks
 
