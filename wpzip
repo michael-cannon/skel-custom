@@ -37,6 +37,19 @@ do
 	fi
 
 	zip -r ${FILE_ZIP} ${PLUGIN}
+
+	cd ${PLUGIN}
+	find . -maxdepth 1 -type f -name "screenshot-*" -exec rm -f {} \;
+
+	cd ${DIR_DOWNLOADS}
+
+	FILE_ZIP="${PLUGIN}-no-screenshots.zip"
+	if [[ -e ${FILE_ZIP} ]]
+	then
+		rm -f ${FILE_ZIP}
+	fi
+
+	zip -r ${FILE_ZIP} ${PLUGIN}
 	rm -rf ${PLUGIN}
 
 	echo

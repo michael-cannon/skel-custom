@@ -48,6 +48,10 @@ open http://wp.localhost/testimonial/robert-harm/
 echo Do theme functions work?
 open http://wp.localhost/theme-functions/
 
+echo Does barebones work?
+echo DELETE FROM wp_options WHERE option_name LIKE '%testimonialswidget%';
+open http://testwp.localhost/wp-admin/plugins.php
+
 echo
 wppush tw
 echo

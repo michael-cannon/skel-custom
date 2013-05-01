@@ -11,6 +11,7 @@ CMD_SSH="ssh -t"
 DIR_DOWNLOADS="${HOME}/Downloads"
 DIR_PLUGINS="wp-content/plugins"
 DIR_SITES="${HOME}/Sites"
+
 SITE_WP="${DIR_SITES}/wp"
 SITE_WP_PLUGINS="${SITE_WP}/${DIR_PLUGINS}"
 DIR_RULESETS="${SITE_WP_PLUGINS}/testimonials-widget/"

@@ -1,10 +1,8 @@
 #!/bin/bash
 
-# Prepare Testimonials Widget and Testimonials Widget Premium for release
+# Prepare Testimonials Widget for release
 #
 # @author Michael Cannon <mc@aihr.us>
-
-# TODO generalize
 
 # TODO read readme head to parse out version
 if [[ -z ${1} ]]
@@ -13,11 +11,16 @@ then
 	exit
 fi
 
-KEY="twa"
+KEY="tw"
 VERSION=${1}
 
 source ~/.skel/bin/custom/wpinit ${KEY}
 echo
+
+# TODO
+# grep readme.txt for same version information "Stable tag: 2.12.1"
+# grep testimonials-widget.php for same version information "Version: 2.12.1"
+# bail if not found
 
 wppackage ${KEY}
 wppush ${KEY}
@@ -30,45 +33,18 @@ svn up --force
 svn cp trunk tags/${VERSION}
 svn ci -m "Release version ${VERSION}"
 
-${CMD_SCP} ~/Downloads/testimonials-widget-premium.zip aihrus@aihr.us:~/subdomains/updates/update/.
-${CMD_SCP} ~/Downloads/testimonials-widget-premium.zip aihrus@aihr.us:~/public_html/wp-content/uploads/edd/2012/11/.
-
-# TODO auto feed our txt files to WP validator
-##	URL_VALIDATE="http://wordpress.org/extend/plugins/about/validator/"
-##	TXTS=`ls *.txt`
-##
-##	for TXT in ${TXTS}
-##	do
-##		echo Prepare ${TXT} for validation
-##		# read TXT contents
-##		# convert TXT to _POST
-##		# submit URL
-##		# open ${URL_VALIDATE} ${TXT}
-##	done
-##
-##	echo
-
 open http://wordpress.org/extend/plugins/about/validator/
 
-mvim ~/Sites/wp/wp-content/plugins/testimonials-widget/changelog.txt
+mvim ${SITE_WP_PLUGINS}/testimonials-widget/changelog.txt
 open http://aihr.us/wp-admin/post.php?post=16105\&action=edit
 
-mvim ~/Sites/wp/wp-content/plugins/testimonials-widget-premium/changelog.txt
-open http://aihr.us/wp-admin/post.php?post=16129\&action=edit
-
-mvim ~/Sites/wp/wp-content/plugins/testimonials-widget-premium/readme.txt
-open http://aihr.us/wp-admin/post.php?post=14635\&action=edit
-open http://aihr.us/wp-admin/post.php?post=14714\&action=edit
-
-mvim ~/Sites/zzz/testimonials-widget-premium/packages.php
-echo ${CMD_SCP} ~/Sites/zzz/testimonials-widget-premium/packages.php aihrus@aihr.us:~/subdomains/updates/packages.php
-echo
-
+open http://testwp.localhost/wp-admin/update-core.php
 open http://aihr.us/wp-admin/update-core.php
+open http://wordpress.org/extend/plugins/testimonials-widget/
 
-for SCRIPT in ${SCRIPTS}
-do
-	echo
-	${SCRIPT}
-	echo
-done
+## for SCRIPT in ${SCRIPTS}
+## do
+## 	echo
+## 	${SCRIPT}
+## 	echo
+## done
