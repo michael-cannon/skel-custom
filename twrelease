@@ -25,6 +25,7 @@ echo
 wppackage ${KEY}
 wppush ${KEY}
 
+# TODO update files
 # push svn and do WordPress release
 cd ~/code/svn.wordpress
 cd testimonials-widget
