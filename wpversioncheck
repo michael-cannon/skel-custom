@@ -5,6 +5,7 @@
 # @author Michael Cannon <mc@aihr.us>
 
 source ~/.skel/bin/custom/wpinit ${@}
+echo
 
 if [[ -z ${2} ]]
 then
@@ -23,10 +24,10 @@ version_tag="Stable tag: ${VERSION}"
 
 if echo "${source_text}" | grep -q "${version_tag}";
 then
-	echo "${file_name} contains '${version_tag}'"
+	echo "GOOD ${file_name} contains '${version_tag}'"
 else
 	FILES_VALID=0
-	echo "${file_name} doesn't contains '${version_tag}'"
+	echo "BAD ${file_name} doesn't contains '${version_tag}'"
 fi
 
 file_name="${PLUGIN}.php"
@@ -35,10 +36,10 @@ version_tag="Version: ${VERSION}"
 
 if echo "${source_text}" | grep -q "${version_tag}";
 then
-	echo "${file_name} contains '${version_tag}'"
+	echo "GOOD ${file_name} contains '${version_tag}'"
 else
 	FILES_VALID=0
-	echo "${file_name} doesn't contains '${version_tag}'"
+	echo "BAD ${file_name} doesn't contains '${version_tag}'"
 fi
 
 file_name="changelog.txt"
@@ -47,16 +48,14 @@ version_tag="= ${VERSION} ="
 
 if echo "${source_text}" | grep -q "${version_tag}";
 then
-	echo "${file_name} contains '${version_tag}'"
+	echo "GOOD ${file_name} contains '${version_tag}'"
 else
 	FILES_VALID=0
-	echo "${file_name} doesn't contains '${version_tag}'"
+	echo "BAD ${file_name} doesn't contains '${version_tag}'"
 fi
 
 if [[ 0 == ${FILES_VALID} ]]
 then
-	echo
-	echo "Version ${VERSION} details are missing"
 	echo
 	exit 1
 fi

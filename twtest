@@ -12,7 +12,7 @@ source ~/.skel/bin/custom/wpinit ${@}
 echo
 
 # coding standard checks
-wpcompile twa
+wpprep twa
 
 echo Remove 'migrated' option
 sql="DELETE FROM wp_options WHERE  option_name LIKE 'testimonialswidget';"
@@ -48,14 +48,25 @@ open http://wp.localhost/testimonial/robert-harm/
 echo Do theme functions work?
 open http://wp.localhost/theme-functions/
 
-echo Does barebones work?
-echo DELETE FROM wp_options WHERE option_name LIKE '%testimonialswidget%';
-open http://testwp.localhost/wp-admin/plugins.php
-
 if [[ -n ${1} ]]
 then
 	exit
 fi
+
+SITE="testwp"
+l2l_config="/Users/michael/.ssh/l2l_config/${SITE}"
+if [[ -e ${l2l_config} ]]
+then
+	source ${l2l_config}
+	CMD_MYSQL="mysql --host=${DB_HOST} --user=${DB_USER} --password=${DB_PW} ${DB_NAME}"
+else
+	CMD_MYSQL=
+fi
+
+echo Does barebones work?
+sql="DELETE FROM wp_options WHERE option_name LIKE '%testimonialswidget%';"
+echo ${sql} | ${CMD_MYSQL}
+open http://testwp.localhost/wp-admin/plugins.php
 
 echo
 wppush tw
