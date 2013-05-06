@@ -9,11 +9,11 @@ KEY="twp"
 source ~/.skel/bin/custom/wpinit ${KEY}
 echo
 
-wppackage ${KEY}
-wppush ${KEY}
+wppackage ${KEY} ${@} || exit 1;
+wppush ${KEY} || exit 1;
 
-${CMD_SCP} ~/Downloads/testimonials-widget-premium.zip aihrus@aihr.us:~/subdomains/updates/update/.
-${CMD_SCP} ~/Downloads/testimonials-widget-premium.zip aihrus@aihr.us:~/public_html/wp-content/uploads/edd/2012/11/.
+${CMD_SCP} ~/Downloads/testimonials-widget-premium.zip aihrus@aihr.us:~/subdomains/updates/update/. || exit 1;
+${CMD_SCP} ~/Downloads/testimonials-widget-premium.zip aihrus@aihr.us:~/public_html/wp-content/uploads/edd/2012/11/. || exit 1;
 
 # TODO auto feed our txt files to WP validator
 ##	URL_VALIDATE="http://wordpress.org/extend/plugins/about/validator/"

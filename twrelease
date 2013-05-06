@@ -4,35 +4,31 @@
 #
 # @author Michael Cannon <mc@aihr.us>
 
-# TODO read readme head to parse out version
-if [[ -z ${1} ]]
-then
-	echo "What's the version number?"
-	exit
-fi
-
 KEY="tw"
-VERSION=${1}
 
 source ~/.skel/bin/custom/wpinit ${KEY}
 echo
 
-# TODO
-# grep readme.txt for same version information "Stable tag: 2.12.1"
-# grep testimonials-widget.php for same version information "Version: 2.12.1"
-# bail if not found
-
-wppackage ${KEY}
+wppackage ${KEY} ${@} || exit 1;
 wppush ${KEY}
 
-# TODO update files
 # push svn and do WordPress release
 cd ~/code/svn.wordpress
 cd testimonials-widget
-svn cleanup .
-svn up --force
-svn cp trunk tags/${VERSION}
-svn ci -m "Release version ${VERSION}"
+svn cleanup . || { echo "Unable to 'svn cleanup'"; exit 1; }
+svn up --force || { echo "Unable to 'svn up --force'"; exit 1; }
+
+if [[ ! -e "tags/${VERSION}" ]]
+then
+	svn cp trunk tags/${VERSION}
+	svn ci -m "Release version ${VERSION}" || { echo "Unable to 'svn ci'"; exit 1; }
+	svn status
+else
+	echo Manually merge SVN files
+	echo "svn cp trunk tags/${VERSION}"
+	echo "svn ci -m \"Release version ${VERSION}\""
+	echo
+fi
 
 open http://wordpress.org/extend/plugins/about/validator/
 

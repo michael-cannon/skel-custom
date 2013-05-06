@@ -47,13 +47,13 @@ do
 
 	echo >> ${FILE_CODE_QA}
 	echo >> ${FILE_CODE_QA}
-	# lines of type of code
-	phploc ${DIR_PLUGIN} >> ${FILE_CODE_QA}
+	# mess detect
+	phpmd ${DIR_PLUGIN} --exclude class-redrokk-metabox-class.php text ${DIR_RULESETS}/phpmd.ruleset.xml >> ${FILE_CODE_QA}
 
 	echo >> ${FILE_CODE_QA}
 	echo >> ${FILE_CODE_QA}
-	# mess detect
-	phpmd ${DIR_PLUGIN} --exclude class-redrokk-metabox-class.php text ${DIR_RULESETS}/phpmd.ruleset.xml >> ${FILE_CODE_QA}
+	# lines of type of code
+	phploc ${DIR_PLUGIN} >> ${FILE_CODE_QA}
 
 	# open file for review
 	mvim ${FILE_CODE_QA}

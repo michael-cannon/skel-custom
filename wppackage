@@ -9,13 +9,12 @@ if [[ -z ${1} ]]
 then
 	echo "Which plugin series key?"
 	echo "Ex: tw"
-	exit
+	echo
+	exit 1
 fi
 
 KEY=${1}
 
-source ~/.skel/bin/custom/wpinit ${KEY}
-echo
-
+wpversioncheck ${@} || exit 1;
 wplocalize ${KEY} commit
 wpzip ${KEY}

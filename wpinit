@@ -15,6 +15,7 @@ DIR_SITES="${HOME}/Sites"
 SITE_WP="${DIR_SITES}/wp"
 SITE_WP_PLUGINS="${SITE_WP}/${DIR_PLUGINS}"
 DIR_RULESETS="${SITE_WP_PLUGINS}/testimonials-widget/"
+PLUGIN=
 
 SSH_AIHRUS="aihrus@aihr.us"
 PATH_AIHRUS="~/public_html"
@@ -29,12 +30,14 @@ case "${1}" in
 		;;
 
 	"tw" )
+		PLUGIN="testimonials-widget"
 		PLUGINS="
 		testimonials-widget
 		"
 		;;
 
 	"twp" )
+		PLUGIN="testimonials-widget-premium"
 		PLUGINS="
 		testimonials-widget-premium
 		"

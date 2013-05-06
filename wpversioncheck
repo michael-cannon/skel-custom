@@ -1,0 +1,62 @@
+#!/bin/bash
+
+# Check WordPress plugins for release version
+#
+# @author Michael Cannon <mc@aihr.us>
+
+source ~/.skel/bin/custom/wpinit ${@}
+
+if [[ -z ${2} ]]
+then
+	echo "What's the version number?"
+	echo
+	exit 1
+fi
+
+FILES_VALID=1
+PLUGIN_DIR="${SITE_WP_PLUGINS}/${PLUGIN}/"
+VERSION=${2}
+
+file_name="readme.txt"
+source_text=`head ${PLUGIN_DIR}/${file_name}`
+version_tag="Stable tag: ${VERSION}"
+
+if echo "${source_text}" | grep -q "${version_tag}";
+then
+	echo "${file_name} contains '${version_tag}'"
+else
+	FILES_VALID=0
+	echo "${file_name} doesn't contains '${version_tag}'"
+fi
+
+file_name="${PLUGIN}.php"
+source_text=`head ${PLUGIN_DIR}/${file_name}`
+version_tag="Version: ${VERSION}"
+
+if echo "${source_text}" | grep -q "${version_tag}";
+then
+	echo "${file_name} contains '${version_tag}'"
+else
+	FILES_VALID=0
+	echo "${file_name} doesn't contains '${version_tag}'"
+fi
+
+file_name="changelog.txt"
+source_text=`head ${PLUGIN_DIR}/${file_name}`
+version_tag="= ${VERSION} ="
+
+if echo "${source_text}" | grep -q "${version_tag}";
+then
+	echo "${file_name} contains '${version_tag}'"
+else
+	FILES_VALID=0
+	echo "${file_name} doesn't contains '${version_tag}'"
+fi
+
+if [[ 0 == ${FILES_VALID} ]]
+then
+	echo
+	echo "Version ${VERSION} details are missing"
+	echo
+	exit 1
+fi

@@ -15,8 +15,8 @@ do
 		continue
 	fi
 
-	${CMD_RSYNC} ${DIR_PLUGIN} ${SSH_AIHRUS}:${PATH_AIHRUS}/${DIR_PLUGINS}/.
-	${CMD_SSH} "chmod -R a+rX ${PATH_AIHRUS}/${DIR_PLUGINS}/${PLUGIN}"
+	${CMD_RSYNC} ${DIR_PLUGIN} ${SSH_AIHRUS}:${PATH_AIHRUS}/${DIR_PLUGINS}/. || exit 1;
+	${CMD_SSH} "chmod -R a+rX ${PATH_AIHRUS}/${DIR_PLUGINS}/${PLUGIN}" || exit 1;
 
 	echo
 done
