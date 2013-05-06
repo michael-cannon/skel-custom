@@ -24,6 +24,7 @@ then
 	svn ci -m "Release version ${VERSION}" || { echo "Unable to 'svn ci'"; exit 1; }
 	svn status
 else
+	echo
 	echo Manually merge SVN files
 	echo "svn cp trunk tags/${VERSION}"
 	echo "svn ci -m \"Release version ${VERSION}\""

@@ -8,9 +8,8 @@
 # @author Michael Cannon <mc@aihr.us>
 
 
+# coding standard checks
 wpcompile twa
-
-# TODO coding standard checks
 
 if [[ -n ${1} ]]
 then
