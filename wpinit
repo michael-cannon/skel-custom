@@ -4,6 +4,16 @@
 #
 # @author Michael Cannon <mc@aihr.us>
 
+SITE="wp"
+l2l_config="/Users/michael/.ssh/l2l_config/${SITE}"
+if [[ -e ${l2l_config} ]]
+then
+	source ${l2l_config}
+	CMD_MYSQL="mysql --host=${DB_HOST} --user=${DB_USER} --password=${DB_PW} ${DB_NAME}"
+else
+	CMD_MYSQL=
+fi
+
 CMD_RSYNC="rsync -Pahz -e ssh --stats --delete-excluded --exclude=**/.git/** --exclude=**/.svn/** --exclude=**/zzz/**"
 CMD_SCP="scp -r -p -C"
 CMD_SSH="ssh -t"
@@ -12,9 +22,10 @@ DIR_DOWNLOADS="${HOME}/Downloads"
 DIR_PLUGINS="wp-content/plugins"
 DIR_SITES="${HOME}/Sites"
 
-SITE_WP="${DIR_SITES}/wp"
+SITE_WP="${DIR_SITES}/${SITE}"
 SITE_WP_PLUGINS="${SITE_WP}/${DIR_PLUGINS}"
 DIR_RULESETS="${SITE_WP_PLUGINS}/testimonials-widget/"
+
 PLUGIN=
 
 SSH_AIHRUS="aihrus@aihr.us"

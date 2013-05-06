@@ -8,14 +8,15 @@
 # @author Michael Cannon <mc@aihr.us>
 
 
+source ~/.skel/bin/custom/wpinit ${@}
+echo
+
 # coding standard checks
 wpcompile twa
 
-if [[ -n ${1} ]]
-then
-	exit
-fi
-
+echo Remove 'migrated' option
+sql="DELETE FROM wp_options WHERE  option_name LIKE 'testimonialswidget';"
+echo ${sql} | ${CMD_MYSQL}
 
 echo Any blatant errors?
 open http://wp.localhost/wp-admin/
@@ -50,6 +51,11 @@ open http://wp.localhost/theme-functions/
 echo Does barebones work?
 echo DELETE FROM wp_options WHERE option_name LIKE '%testimonialswidget%';
 open http://testwp.localhost/wp-admin/plugins.php
+
+if [[ -n ${1} ]]
+then
+	exit
+fi
 
 echo
 wppush tw
