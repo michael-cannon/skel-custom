@@ -18,7 +18,13 @@ CMD_RSYNC="rsync -Pahz -e ssh --stats --delete-excluded --exclude=**/.git/** --e
 CMD_SCP="scp -r -p -C"
 CMD_SSH="ssh -t"
 
-DIR_DOWNLOADS="${HOME}/Downloads"
+DIR_DOWNLOADS="${HOME}/Downloads/zzz-wp"
+
+if [[ ! -e ${DIR_DOWNLOADS} ]]
+then
+	mkdir ${DIR_DOWNLOADS}
+fi
+
 DIR_PLUGINS="wp-content/plugins"
 DIR_SITES="${HOME}/Sites"
 
