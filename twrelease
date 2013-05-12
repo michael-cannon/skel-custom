@@ -9,6 +9,15 @@ KEY="tw"
 source ~/.skel/bin/custom/wpinit ${KEY}
 echo
 
+if [[ -z ${1} ]]
+then
+	echo "What's the version number?"
+	echo
+	exit 1
+fi
+
+VERSION=${1}
+
 wppackage ${KEY} ${@} || exit 1;
 wppush ${KEY}
 
@@ -18,7 +27,7 @@ cd testimonials-widget
 svn cleanup . || { echo "Unable to 'svn cleanup'"; exit 1; }
 svn up --force || { echo "Unable to 'svn up --force'"; exit 1; }
 
-if [[ ! -e "tags/${VERSION}" ]]
+if [[ ! -d "tags/${VERSION}" ]]
 then
 	svn cp trunk tags/${VERSION}
 	svn ci -m "Release version ${VERSION}" || { echo "Unable to 'svn ci'"; exit 1; }
