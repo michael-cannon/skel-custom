@@ -6,9 +6,13 @@
 # @version $Id: l2l_excelassist,v 1.2 2011/09/23 05:13:46 peimic.comprock Exp $
 
 # configuration vars
-DOMAIN_NAME="excelassist.com"
-DOMAIN_USER="excelass"
-REMOTE_DIR_WWW="/home3/${DOMAIN_USER}/public_html"
+USE_FTP=1
+DOMAIN_NAME="excauctions.com"
+DOMAIN_USER="excaucti"
+# DOMAIN_NAME="excelassist.com"
+# DOMAIN_USER="excelass"
+REMOTE_DIR_WWW="/public_html"
+# REMOTE_DIR_WWW="/home3/${DOMAIN_USER}/public_html"
 
 # load live2local function helpers
 source ~/.skel/scripts/live2local.sh

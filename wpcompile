@@ -48,7 +48,8 @@ do
 	echo >> ${FILE_CODE_QA}
 	echo >> ${FILE_CODE_QA}
 	# mess detect
-	phpmd ${DIR_PLUGIN} --exclude class-redrokk-metabox-class.php text ${DIR_RULESETS}/phpmd.ruleset.xml >> ${FILE_CODE_QA}
+	# @ref https://github.com/manuelpichler/phpmd
+	phpmd ${DIR_PLUGIN} --exclude Akismet.class.php,class-redrokk-metabox-class.php text ${DIR_RULESETS}/phpmd.ruleset.xml >> ${FILE_CODE_QA}
 
 	echo >> ${FILE_CODE_QA}
 	echo >> ${FILE_CODE_QA}
