@@ -11,8 +11,8 @@ DOMAIN_NAME="italien.de"
 REMOTE_SERVER="ssh-968678@in2code.de"
 REMOTE_DIR_WWW="/kunden/bus-netzwerk.info/hosting/44225/in2code.de/projekte/italien.de/www"
 TYPO3_VERSION="4.6.4"
-# RSYNC_MODS="--max-size=2m --include=uploads/ --exclude=**/uploads/**"
-# RSYNC_MODS="--max-size=2m"
+# RSYNC_MODS="--max-size=4m --include=uploads/ --exclude=**/uploads/**"
+# RSYNC_MODS="--max-size=4m"
 
 # load live2local function helpers
 source ~/.skel/scripts/live2local.sh

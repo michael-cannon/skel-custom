@@ -10,7 +10,7 @@ DOMAIN_NAME="questgroup.de"
 REMOTE_SERVER="web0@quest-club.de"
 REMOTE_DIR_WWW="/var/www/web0/html/www2"
 # RSYNC_MODS="--include=fileadmin/user_upload/ --exclude=**/fileadmin/user_upload/** --include=uploads/ --exclude=**/uploads/**"
-RSYNC_MODS="--max-size=2m --include=fileadmin/user_upload/ --exclude=**/fileadmin/user_upload/**"
+RSYNC_MODS="--max-size=4m --include=fileadmin/user_upload/ --exclude=**/fileadmin/user_upload/**"
 TYPO3_VERSION="4.5.11"
 # DB_UTF8_CONVERT="true"
 

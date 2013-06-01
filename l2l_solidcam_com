@@ -9,7 +9,7 @@
 DOMAIN_NAME="solidcam.com"
 REMOTE_SERVER="ssh-139858-in2code@www.solidcam.com"
 REMOTE_DIR_WWW="/kunden/139858_78713/webseiten/TYPO3_CMS_ONE/solidcam"
-RSYNC_MODS="--max-size=2m --include=fileadmin/videos/ --exclude=**/fileadmin/videos/** --include=fileadmin/International/ --exclude=**/fileadmin/International/** --include=fileadmin/downloads/ --exclude=**/fileadmin/downloads/**"
+RSYNC_MODS="--max-size=4m --include=fileadmin/videos/ --exclude=**/fileadmin/videos/** --include=fileadmin/International/ --exclude=**/fileadmin/International/** --include=fileadmin/downloads/ --exclude=**/fileadmin/downloads/**"
 # RSYNC_MODS="--include=uploads/ --exclude=**/uploads/**"
 
 # load live2local function helpers

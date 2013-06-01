@@ -10,7 +10,7 @@ DOMAIN_NAME="mediaburn.org"
 DOMAIN_USER="root"
 REMOTE_SERVER="root@115.124.96.209"
 REMOTE_DIR_WWW="/opt/lampp/htdocs"
-RSYNC_MODS="--max-size=2m --include=beta2_typo3/ --exclude=**/beta2_typo3/** --include=xampp/ --exclude=**/xampp/** --include=webalizer/ --exclude=**/webalizer/** --include=munin/ --exclude=**/munin/**"
+RSYNC_MODS="--max-size=4m --include=beta2_typo3/ --exclude=**/beta2_typo3/** --include=xampp/ --exclude=**/xampp/** --include=webalizer/ --exclude=**/webalizer/** --include=munin/ --exclude=**/munin/**"
 BIN_MYSQL="/opt/lampp/bin"
 
 # load live2local function helpers

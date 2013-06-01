@@ -10,7 +10,7 @@ DOMAIN_NAME="acqal.peimic.com"
 REMOTE_SERVER="acqalco@acqal.peimic.com"
 REMOTE_DIR_WWW="/home/acqalco/public_html"
 LOCAL_DIR_WWW="/Users/michael/Sites/acqal"
-# RSYNC_MODS="--max-size=2m --include=store/ --exclude=**/store/** --include=MediaContent/ --exclude=**/MediaContent/** --include=pdf/ --exclude=**/pdf/**"
+# RSYNC_MODS="--max-size=4m --include=store/ --exclude=**/store/** --include=MediaContent/ --exclude=**/MediaContent/** --include=pdf/ --exclude=**/pdf/**"
 
 # load live2local function helpers
 source ~/.skel/scripts/live2local.sh

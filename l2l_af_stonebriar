@@ -9,7 +9,7 @@
 DOMAIN_NAME="af.stonebriar.org"
 REMOTE_SERVER="michael@stonebriar01.managed.contegix.com"
 REMOTE_DIR_WWW="/var/www/domains/stonebriar.org/af/htdocs"
-RSYNC_MODS="--max-size=2m --include=wp-content/blogs.dir.o/ --exclude=**/wp-content/blogs.dir.o/**"
+RSYNC_MODS="--max-size=4m --include=wp-content/blogs.dir.o/ --exclude=**/wp-content/blogs.dir.o/**"
 
 # load live2local function helpers
 source ~/.skel/scripts/live2local.sh

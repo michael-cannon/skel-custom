@@ -9,12 +9,12 @@
 DOMAIN_NAME="www.stonebriar.org"
 REMOTE_SERVER="michael@stonebriar01.managed.contegix.com"
 REMOTE_DIR_WWW="/var/www/domains/stonebriar.org/www/htdocs"
-RSYNC_MODS="--max-size=2M --include=fileadmin/pageassets_3.0/ --exclude=**/fileadmin/pageassets_3.0/** --include=uploads/tx_wecflashplayer/ --exclude=**/uploads/tx_wecflashplayer/**"
+RSYNC_MODS="--max-size=4M --include=fileadmin/pageassets_3.0/ --exclude=**/fileadmin/pageassets_3.0/** --include=uploads/tx_wecflashplayer/ --exclude=**/uploads/tx_wecflashplayer/**"
 
 # load live2local function helpers
 source ~/.skel/scripts/live2local.sh
 
-LOCAL_MODS[1]="cp ~/code/svn.in2code/in2code/in2master/trunk/_.htaccess .htaccess"
+LOCAL_MODS[1]="cp ~/code/in2master/_.htaccess .htaccess"
 LOCAL_MODS[2]="if [[ -e index.html ]]; then mv index.html index.maint.html; fi"
 
 l2l_site_typo3

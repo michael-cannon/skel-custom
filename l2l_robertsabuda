@@ -9,8 +9,8 @@
 DOMAIN_NAME="robertsabuda.com"
 REMOTE_SERVER="root@64.57.244.134"
 REMOTE_DIR_WWW="/var/www/vhosts/robertsabuda.com/httpdocs/store"
-# RSYNC_MODS="--max-size=2m --include=store/ --exclude=**/store/** --include=MediaContent/ --exclude=**/MediaContent/** --include=pdf/ --exclude=**/pdf/**"
-RSYNC_MODS="--max-size=2m"
+# RSYNC_MODS="--max-size=4m --include=store/ --exclude=**/store/** --include=MediaContent/ --exclude=**/MediaContent/** --include=pdf/ --exclude=**/pdf/**"
+RSYNC_MODS="--max-size=4m"
 
 # load live2local function helpers
 source ~/.skel/scripts/live2local.sh

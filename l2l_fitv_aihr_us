@@ -16,7 +16,7 @@ source ~/.skel/scripts/live2local.sh
 LOCAL_MODS[1]="perl -pi -e \"s#^.*(define\(\s?'WP_HOME'.*$)#\1#g\" wp-config.php"
 LOCAL_MODS[2]="perl -pi -e \"s#^.*(define\(\s?'WP_SITEURL'.*$)#\1#g\" wp-config.php"
 
-# RSYNC_MODS="--max-size=2m --include=store/ --exclude=**/store/** --include=MediaContent/ --exclude=**/MediaContent/** --include=pdf/ --exclude=**/pdf/**"
+# RSYNC_MODS="--max-size=4m --include=store/ --exclude=**/store/** --include=MediaContent/ --exclude=**/MediaContent/** --include=pdf/ --exclude=**/pdf/**"
 RSYNC_MODS="--include=dev/ --exclude=**/dev/**"
 
 # l2l_site_wordpress_multisite

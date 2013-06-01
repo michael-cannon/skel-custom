@@ -8,7 +8,7 @@
 # configuration vars
 DOMAIN_NAME="2elearning.com"
 DOMAIN_USER="elearni"
-RSYNC_MODS="--max-size=2m --include=openx/var/cache/ --exclude=**/openx/var/cache/** --include=el_export/ --exclude=**/el_export/**"
+RSYNC_MODS="--max-size=4m --include=openx/var/cache/ --exclude=**/openx/var/cache/** --include=el_export/ --exclude=**/el_export/**"
 
 # load live2local function helpers
 source ~/.skel/scripts/live2local.sh
