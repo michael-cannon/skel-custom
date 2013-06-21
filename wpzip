@@ -19,10 +19,12 @@ do
 	if [[ "testimonials-widget-premium" == ${PLUGIN} ]]
 	then
 		echo Prepare Testimonials Widget Premium
-		git clone ssh://git_peimic@peimic.git.cloudforge.com/testimonialswidgetpremium.git ${PLUGIN}
+		# git clone ssh://git_peimic@peimic.git.cloudforge.com/testimonialswidgetpremium.git ${PLUGIN}
+		git clone git@github.com:michael-cannon/testimonials-widget-premium.git ${PLUGIN}
 	else
 		echo Prepare ${PLUGIN} 
-		svn co http://plugins.svn.wordpress.org/${PLUGIN}/trunk ${PLUGIN}
+		# svn co http://plugins.svn.wordpress.org/${PLUGIN}/trunk ${PLUGIN}
+		git clone git@github.com:michael-cannon/testimonials-widget.git ${PLUGIN}
 	fi
 
 	cd ${PLUGIN}

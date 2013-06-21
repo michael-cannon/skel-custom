@@ -1,4 +1,3 @@
-skel-custom
-===========
+skel Directory Customizations
+=============================
 
-skel directory customizations
