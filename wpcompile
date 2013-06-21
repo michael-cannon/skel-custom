@@ -35,6 +35,9 @@ do
 		php -l ${FILE} >> ${FILE_CODE_QA}
 	done
 
+	# remove phptidy 
+	find . \( -name "*.phptidybak~" -o -name ".phptidy-cache" \) -exec rm {} \;
+
 	echo >> ${FILE_CODE_QA}
 	echo >> ${FILE_CODE_QA}
 	# code sniffer

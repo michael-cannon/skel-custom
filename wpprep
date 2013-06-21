@@ -12,6 +12,3 @@ echo
 
 wplocalize ${KEY}
 wpcompile ${KEY}
-
-# remove phptidy 
-find ${DIR_RULESETS}* \( -name "*.phptidybak~" -o -name ".phptidy-cache" \) -exec rm {} \;
