@@ -34,7 +34,7 @@ do
 		echo Update text domain in ${FILE}
 		php ${SITE_WP_PLUGINS}/i18n.svn.wordpress.org/add-textdomain.php -i ${PLUGIN} ${FILE}
 		# clean up text domain spacing
-		# `' , 'testimonials-widget-premium')` to `', 'testimonials-widget-premium' )`
+		# `' , 'asdf')` to `', 'asdf' )`
 		perl -pi -e "s#('|\") , '${PLUGIN}'\s?\)#\1, '${PLUGIN}' )#g" ${FILE}
 	done
 
@@ -44,7 +44,7 @@ do
 
 	if [[ ${DO_COMMIT} ]]
 	then
-		if [[ "testimonials-widget-premium" == ${PLUGIN} ]]
+		if [[ "testimonials-widget" == ${PLUGIN} || "testimonials-widget-premium" == ${PLUGIN} || "custom-bulk-quick-edit" == ${PLUGIN} ]]
 		then
 			git add -u
 			git commit -m "Update localization"

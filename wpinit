@@ -39,6 +39,12 @@ PATH_AIHRUS="~/public_html"
 CMD_SSH="${CMD_SSH} ${SSH_AIHRUS}"
 
 case "${1}" in
+
+	"cbqe" )
+		PLUGIN="custom-bulk-quick-edit"
+		PLUGINS="custom-bulk-quick-edit"
+		;;
+
 	"twa" )
 		PLUGINS="
 		testimonials-widget
@@ -48,22 +54,19 @@ case "${1}" in
 
 	"tw" )
 		PLUGIN="testimonials-widget"
-		PLUGINS="
-		testimonials-widget
-		"
+		PLUGINS="testimonials-widget"
 		;;
 
 	"twp" )
 		PLUGIN="testimonials-widget-premium"
-		PLUGINS="
-		testimonials-widget-premium
-		"
+		PLUGINS="testimonials-widget-premium"
 		;;
 esac
 
 if [[ -z ${PLUGINS} ]]
 then
 	PLUGINS="
+	custom-bulk-quick-edit
 	flickr-shortcode-importer
 	testimonials-widget
 	testimonials-widget-premium
