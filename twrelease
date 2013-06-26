@@ -17,16 +17,14 @@ then
 fi
 
 VERSION=${1}
-
-wppackage ${KEY} ${@} || exit 1;
-wppush ${KEY}
+wprelease ${KEY} ${VERSION} || exit 1;
 
 # push svn and do WordPress release
 cd ~/code/svn.wordpress
 cd testimonials-widget
 svn cleanup . || { echo "Unable to 'svn cleanup'"; exit 1; }
 svn up --force || { echo "Unable to 'svn up --force'"; exit 1; }
-git clone git@github.com:michael-cannon/testimonials-widget.git
+git clone git@github.com:michael-cannon/testimonials-widget.git || exit 1;
 cd testimonials-widget
 rm -rf .git
 cp -r * ../trunk/.
@@ -56,10 +54,3 @@ open http://aihr.us/wp-admin/post.php?post=16105\&action=edit
 open http://testwp.localhost/wp-admin/update-core.php
 open http://aihr.us/wp-admin/update-core.php
 open http://wordpress.org/extend/plugins/testimonials-widget/
-
-## for SCRIPT in ${SCRIPTS}
-## do
-## 	echo
-## 	${SCRIPT}
-## 	echo
-## done
