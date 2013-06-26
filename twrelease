@@ -26,6 +26,14 @@ cd ~/code/svn.wordpress
 cd testimonials-widget
 svn cleanup . || { echo "Unable to 'svn cleanup'"; exit 1; }
 svn up --force || { echo "Unable to 'svn up --force'"; exit 1; }
+git clone git@github.com:michael-cannon/testimonials-widget.git
+cd testimonials-widget
+rm -rf .git
+cp -r * ../trunk/.
+cd ../trunk
+svn add *
+cd ..
+rm -rf testimonials-widget
 
 if [[ ! -d "tags/${VERSION}" ]]
 then

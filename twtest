@@ -69,6 +69,7 @@ echo ${sql} | ${CMD_MYSQL}
 sql="DELETE FROM wp_options WHERE option_name LIKE '%testimonialswidget%';"
 echo ${sql} | ${CMD_MYSQL}
 cp -r ${SITE_WP_PLUGINS}/testimonials-widget* ${DIR_SITES}/testwp/${DIR_PLUGINS}/.
+chmod -R a+rwX ${DIR_SITES}/testwp/${DIR_PLUGINS}/.
 open http://testwp.localhost/wp-admin/plugins.php
 
 echo
