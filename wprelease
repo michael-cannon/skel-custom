@@ -11,7 +11,7 @@ then
 	exit 1
 fi
 
-KEY==${1}
+KEY=${1}
 VERSION=${2}
 
 source ~/.skel/bin/custom/wpinit ${KEY}
@@ -25,4 +25,8 @@ git checkout master || exit 1
 cd -
 
 wppackage ${KEY} ${@} || exit 1;
-wppush ${KEY} || exit 1;
+
+if [[ -z ${3} ]]
+then
+	wppush ${KEY} || exit 1;
+fi
