@@ -3,7 +3,6 @@
 # Check WordPress plugins for release version
 #
 # @author Michael Cannon <mc@aihr.us>
-
 source ~/.skel/bin/custom/wpinit ${@}
 echo
 

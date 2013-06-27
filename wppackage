@@ -4,17 +4,16 @@
 #
 # @author Michael Cannon <mc@aihr.us>
 
-
-if [[ -z ${1} ]]
+if [[ -z ${1} || -z ${2} ]]
 then
-	echo "Which plugin series key?"
-	echo "Ex: tw"
+	echo ${0} plugin-key version-number
 	echo
 	exit 1
 fi
 
 KEY=${1}
+VERSION=${2}
 
 wpversioncheck ${@} || exit 1;
 wplocalize ${KEY} commit || exit 1;
-wpzip ${KEY} ${@} || exit 1;
+wpzip ${@} || exit 1;

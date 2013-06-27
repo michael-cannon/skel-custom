@@ -24,9 +24,5 @@ git push origin ${VERSION} || exit 1
 git checkout master || exit 1
 cd -
 
-wppackage ${KEY} ${@} || exit 1;
-
-if [[ -z ${3} ]]
-then
-	wppush ${KEY} || exit 1;
-fi
+wppackage ${@} || exit 1;
+wppush ${@} || exit 1;

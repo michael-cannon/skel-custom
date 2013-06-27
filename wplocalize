@@ -44,7 +44,11 @@ do
 
 	if [[ ${DO_COMMIT} ]]
 	then
-		if [[ "testimonials-widget" == ${PLUGIN} || "testimonials-widget-premium" == ${PLUGIN} || "custom-bulk-quick-edit" == ${PLUGIN} ]]
+		if [[ "testimonials-widget" == ${PLUGIN}
+			|| "testimonials-widget-premium" == ${PLUGIN}
+			|| "custom-bulk-quick-edit" == ${PLUGIN}
+			|| "custom-bulk-quick-edit-premium" == ${PLUGIN}
+		]]
 		then
 			git add -u
 			git commit -m "Update localization"
