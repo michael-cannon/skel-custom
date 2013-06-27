@@ -7,6 +7,11 @@
 source ~/.skel/bin/custom/wpinit ${@}
 echo
 
+if [[ -n ${2} ]]
+then
+	VERSION=${2}
+fi
+
 for PLUGIN in ${PLUGINS}
 do
 	cd ${DIR_DOWNLOADS}
@@ -43,6 +48,17 @@ do
 
 	zip -r ${FILE_ZIP} ${PLUGIN}
 
+	if [[ -n ${VERSION} ]]
+	then
+		FILE_ZIP="${PLUGIN}-${VERSION}.zip"
+		if [[ -e ${FILE_ZIP} ]]
+		then
+			rm -f ${FILE_ZIP}
+		fi
+
+		zip -r ${FILE_ZIP} ${PLUGIN}
+	fi
+
 	cd ${PLUGIN}
 	find . -maxdepth 1 -type f -name "screenshot-*" -exec rm -f {} \;
 
@@ -55,6 +71,18 @@ do
 	fi
 
 	zip -r ${FILE_ZIP} ${PLUGIN}
+
+	if [[ -n ${VERSION} ]]
+	then
+		FILE_ZIP="${PLUGIN}-${VERSION}-no-screenshots.zip"
+		if [[ -e ${FILE_ZIP} ]]
+		then
+			rm -f ${FILE_ZIP}
+		fi
+
+		zip -r ${FILE_ZIP} ${PLUGIN}
+	fi
+
 	rm -rf ${PLUGIN}
 
 	echo

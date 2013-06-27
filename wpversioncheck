@@ -18,6 +18,7 @@ FILES_VALID=1
 PLUGIN_DIR="${SITE_WP_PLUGINS}/${PLUGIN}/"
 VERSION=${2}
 
+
 file_name="readme.txt"
 source_text=`head ${PLUGIN_DIR}/${file_name}`
 version_tag="Stable tag: ${VERSION}"
@@ -30,8 +31,9 @@ else
 	echo "BAD ${file_name} doesn't contains '${version_tag}'"
 fi
 
+
 file_name="${PLUGIN}.php"
-source_text=`head ${PLUGIN_DIR}/${file_name}`
+source_text=`head -n 50 ${PLUGIN_DIR}/${file_name}`
 version_tag="Version: ${VERSION}"
 
 if echo "${source_text}" | grep -q "${version_tag}";
@@ -42,9 +44,33 @@ else
 	echo "BAD ${file_name} doesn't contains '${version_tag}'"
 fi
 
+version_tag="= '${VERSION}';"
+
+if echo "${source_text}" | grep -q "${version_tag}";
+then
+	echo "GOOD ${file_name} contains '${version_tag}'"
+else
+	echo "WARNING ${file_name} doesn't contains '${version_tag}'"
+fi
+
+
 file_name="changelog.txt"
-source_text=`head ${PLUGIN_DIR}/${file_name}`
-version_tag="= ${VERSION} ="
+file="${PLUGIN_DIR}/${file_name}"
+
+if [[ -e ${file} ]]
+then
+	version_tag="= ${VERSION} ="
+else
+	file_name="CHANGELOG.md"
+	file="${PLUGIN_DIR}/${file_name}"
+
+	if [[ -e ${file} ]]
+	then
+		version_tag="## ${VERSION}"
+	fi
+fi
+
+source_text=`head ${file}`
 
 if echo "${source_text}" | grep -q "${version_tag}";
 then

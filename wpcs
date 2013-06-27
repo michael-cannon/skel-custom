@@ -29,7 +29,7 @@ do
 	for FILE in ${FILES}
 	do
 		# apply WordPress Coding Standards
-		wp-phptidy.php replace ${FILE}
+		phptidy.php replace ${FILE}
 
 		# PHP compile test
 		php -l ${FILE} >> ${FILE_CODE_QA}

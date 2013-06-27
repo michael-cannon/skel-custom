@@ -40,9 +40,21 @@ CMD_SSH="${CMD_SSH} ${SSH_AIHRUS}"
 
 case "${1}" in
 
+	"cbqea" )
+		PLUGINS="
+		custom-bulk-quick-edit
+		custom-bulk-quick-edit-premium
+		"
+		;;
+
 	"cbqe" )
 		PLUGIN="custom-bulk-quick-edit"
 		PLUGINS="custom-bulk-quick-edit"
+		;;
+
+	"cbqep" )
+		PLUGIN="custom-bulk-quick-edit-premium"
+		PLUGINS="custom-bulk-quick-edit-premium"
 		;;
 
 	"twa" )
@@ -61,16 +73,23 @@ case "${1}" in
 		PLUGIN="testimonials-widget-premium"
 		PLUGINS="testimonials-widget-premium"
 		;;
+
+	"ws" )
+		PLUGIN="wordpress-starter"
+		PLUGINS="wordpress-starter"
+		;;
 esac
 
 if [[ -z ${PLUGINS} ]]
 then
 	PLUGINS="
 	custom-bulk-quick-edit
+	custom-bulk-quick-edit-premium
 	flickr-shortcode-importer
 	testimonials-widget
 	testimonials-widget-premium
 	typo3-importer
+	wordpress-starter
 	"
 fi
 

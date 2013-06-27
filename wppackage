@@ -17,4 +17,4 @@ KEY=${1}
 
 wpversioncheck ${@} || exit 1;
 wplocalize ${KEY} commit
-wpzip ${KEY}
+wpzip ${KEY} ${@}
