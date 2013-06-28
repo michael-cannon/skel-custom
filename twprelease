@@ -39,16 +39,15 @@ ${CMD_SCP} ~/Downloads/zzz-wp/testimonials-widget-premium.zip aihrus@aihr.us:~/p
 
 open http://wordpress.org/extend/plugins/about/validator/
 
-mvim ${SITE_WP_PLUGINS}/testimonials-widget-premium/changelog.txt
+# changelog
 open http://aihr.us/wp-admin/post.php?post=16129\&action=edit
 
 mvim ${SITE_WP_PLUGINS}/testimonials-widget-premium/readme.txt
+# details
 open http://aihr.us/wp-admin/post.php?post=14635\&action=edit
+# product
 open http://aihr.us/wp-admin/post.php?post=14714\&action=edit
 
 mvim ~/Sites/zzz/testimonials-widget-premium/packages.php
 echo ${CMD_SCP} ~/Sites/zzz/testimonials-widget-premium/packages.php aihrus@aihr.us:~/subdomains/updates/packages.php
 echo
-
-open http://aihr.us/wp-admin/update-core.php
-open http://testwp.localhost/wp-admin/update-core.php

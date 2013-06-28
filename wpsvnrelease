@@ -45,7 +45,3 @@ else
 	echo "svn ci -m \"Release version ${VERSION}\""
 	echo
 fi
-
-open http://wordpress.org/extend/plugins/${PLUGIN}/
-open http://testwp.localhost/wp-admin/update-core.php
-open http://aihr.us/wp-admin/update-core.php
