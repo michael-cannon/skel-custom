@@ -12,8 +12,3 @@ then
 fi
 
 KEY=${1}
-VERSION=${2}
-
-wpversioncheck ${@} || exit 1;
-wplocalize ${KEY} commit || exit 1;
-wpzip ${@} || exit 1;
