@@ -41,15 +41,19 @@ else
 	echo "BAD ${file_name} doesn't contains '${version_tag}'"
 fi
 
+version_tag="= '${VERSION}';"
+if echo "${source_text}" | grep -q "${version_tag}";
+then
+	echo "GOOD ${file_name} contains '${version_tag}'"
+else
+	FILES_VALID=0
+	echo "BAD ${file_name} doesn't contains '${version_tag}'"
+fi
+
 if [[ "${file_name}" =~ .*-premium.* ]]
 then
-	version_tag="VERSION"
-	if echo "${source_text}" | grep -q "${version_tag}";
-	then
-		echo "GOOD ${file_name} contains '${version_tag}'"
-	else
-		echo "WARNING ${file_name} doesn't contains '${version_tag}'"
-	fi
+	echo "CHECK"
+	echo "${source_text}" | grep "REQUIRED_FREE_VERSION";
 fi
 
 
