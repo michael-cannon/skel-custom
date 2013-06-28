@@ -19,5 +19,3 @@ else
 fi
 
 wpsvnrelease ${KEY} ${VERSION} || exit 1;
-
-open http://aihr.us/wp-admin/post.php?post=16105\&action=edit

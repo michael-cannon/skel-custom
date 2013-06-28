@@ -52,6 +52,8 @@ do
 
 	cd ${DIR_DOWNLOADS}
 
+	# only do no screenshot versions for premium
+
 	FILE_ZIP="${PLUGIN}-no-screenshots.zip"
 	if [[ -e ${FILE_ZIP} ]]
 	then

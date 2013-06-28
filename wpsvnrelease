@@ -46,10 +46,6 @@ else
 	echo
 fi
 
-open http://wordpress.org/extend/plugins/about/validator/
-
-mvim ${SITE_WP_PLUGINS}/${PLUGIN}/changelog.txt
-
+open http://wordpress.org/extend/plugins/${PLUGIN}/
 open http://testwp.localhost/wp-admin/update-core.php
 open http://aihr.us/wp-admin/update-core.php
-open http://wordpress.org/extend/plugins/${PLUGIN}/
