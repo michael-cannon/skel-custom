@@ -21,7 +21,6 @@ VERSION=${2}
 file_name="readme.txt"
 source_text=`head ${PLUGIN_DIR}/${file_name}`
 version_tag="Stable tag: ${VERSION}"
-
 if echo "${source_text}" | grep -q "${version_tag}";
 then
 	echo "GOOD ${file_name} contains '${version_tag}'"
@@ -34,7 +33,6 @@ fi
 file_name="${PLUGIN}.php"
 source_text=`head -n 50 ${PLUGIN_DIR}/${file_name}`
 version_tag="Version: ${VERSION}"
-
 if echo "${source_text}" | grep -q "${version_tag}";
 then
 	echo "GOOD ${file_name} contains '${version_tag}'"
@@ -43,19 +41,20 @@ else
 	echo "BAD ${file_name} doesn't contains '${version_tag}'"
 fi
 
-version_tag="= '${VERSION}';"
-
-if echo "${source_text}" | grep -q "${version_tag}";
+if [[ "${file_name}" =~ .*-premium.* ]]
 then
-	echo "GOOD ${file_name} contains '${version_tag}'"
-else
-	echo "WARNING ${file_name} doesn't contains '${version_tag}'"
+	version_tag="VERSION"
+	if echo "${source_text}" | grep -q "${version_tag}";
+	then
+		echo "GOOD ${file_name} contains '${version_tag}'"
+	else
+		echo "WARNING ${file_name} doesn't contains '${version_tag}'"
+	fi
 fi
 
 
 file_name="changelog.txt"
 file="${PLUGIN_DIR}/${file_name}"
-
 if [[ -e ${file} ]]
 then
 	version_tag="= ${VERSION} ="
@@ -70,7 +69,6 @@ else
 fi
 
 source_text=`head ${file}`
-
 if echo "${source_text}" | grep -q "${version_tag}";
 then
 	echo "GOOD ${file_name} contains '${version_tag}'"
@@ -79,8 +77,9 @@ else
 	echo "BAD ${file_name} doesn't contains '${version_tag}'"
 fi
 
+echo
+
 if [[ 0 == ${FILES_VALID} ]]
 then
-	echo
 	exit 1
 fi

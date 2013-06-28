@@ -7,3 +7,7 @@
 * Check plugins for VERSION in class code
 * Don't push if not wanted
 * Replace wp-phptidy.php with phptidy.php
+* Update clamscan config
+* Rename custom-bulkquick-edit*
+* Focus on git
+* Port wppackage to wprelease

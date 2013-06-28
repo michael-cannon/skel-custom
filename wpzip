@@ -21,19 +21,7 @@ do
 		rm -rf ${PLUGIN}
 	fi
 
-	if [[ "testimonials-widget-premium" == ${PLUGIN} ]]
-	then
-		echo Prepare Testimonials Widget Premium
-		git clone git@github.com:michael-cannon/testimonials-widget-premium.git ${PLUGIN}
-	elif [[ "custom-bulk-quick-edit" == ${PLUGIN} ]]
-	then
-		echo Prepare Custom Bulk/Quick Edit
-		git clone git@github.com:michael-cannon/custom-bulk-quick-edit.git ${PLUGIN}
-	else
-		echo Prepare ${PLUGIN} 
-		# svn co http://plugins.svn.wordpress.org/${PLUGIN}/trunk ${PLUGIN}
-		git clone git@github.com:michael-cannon/testimonials-widget.git ${PLUGIN}
-	fi
+	git clone git@github.com:michael-cannon/${PLUGIN}.git ${PLUGIN} || exit 1
 
 	cd ${PLUGIN}
 	find . -type d \( -name ".git" -o -name ".svn" \) -exec rm -rf {} \;

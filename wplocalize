@@ -44,18 +44,9 @@ do
 
 	if [[ ${DO_COMMIT} ]]
 	then
-		if [[ "testimonials-widget" == ${PLUGIN}
-			|| "testimonials-widget-premium" == ${PLUGIN}
-			|| "custom-bulk-quick-edit" == ${PLUGIN}
-			|| "custom-bulk-quick-edit-premium" == ${PLUGIN}
-		]]
-		then
-			git add -u
-			git commit -m "Update localization"
-			git push origin master
-		else
-			svn commit -m "Update localization"
-		fi
+		git add -u || exit 1
+		git commit -m "Update localization" || exit 1
+		git push origin master || exit 1
 	fi
 
 	echo
