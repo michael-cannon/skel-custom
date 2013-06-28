@@ -7,14 +7,12 @@
 source ~/.skel/bin/custom/wpinit ${@}
 echo
 
-
 if [[ -z ${2} ]]
 then
 	DO_COMMIT=
 else
 	DO_COMMIT=1
 fi
-
 
 for PLUGIN in ${PLUGINS}
 do
