@@ -17,14 +17,16 @@ fi
 source ~/.skel/bin/custom/wpinit ${KEY}
 echo
 
+cd ${SITE_WP_PLUGINS}/${PLUGIN} || exit 1;
+git pull || exit 1;
+
 wpversioncheck ${KEY} ${VERSION} || exit 1;
 wplocalize ${KEY} commit || exit 1;
 
-cd ${SITE_WP_PLUGINS}/${PLUGIN} || exit 1
-git branch -f ${VERSION} || exit 1
-git checkout ${VERSION} || exit 1
-git push origin ${VERSION} || exit 1
-git checkout master || exit 1
+git branch -f ${VERSION} || exit 1;
+git checkout ${VERSION} || exit 1;
+git push origin ${VERSION} || exit 1;
+git checkout master || exit 1;
 cd -
 
 wpzip ${@} || exit 1;

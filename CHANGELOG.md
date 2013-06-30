@@ -11,3 +11,5 @@
 * Rename custom-bulkquick-edit*
 * Focus on git
 * Port wppackage to wprelease
+* Create Custom Bulk/Quick Edit Premium release helper
+* Clean out all git components

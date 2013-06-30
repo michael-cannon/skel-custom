@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Prepare Testimonials Widget Premium for release
+# Prepare Custom Bulk/Quick Edit Premium for release
 #
 # @author Michael Cannon <mc@aihr.us>
 
-KEY="twp"
+KEY="cbqep"
 
 source ~/.skel/bin/custom/wpinit ${KEY}
 echo
@@ -19,34 +19,19 @@ fi
 VERSION=${1}
 wprelease ${KEY} ${VERSION} || exit 1;
 
-${CMD_SCP} ~/Downloads/zzz-wp/testimonials-widget-premium.zip aihrus@aihr.us:~/subdomains/updates/update/. || exit 1;
-${CMD_SCP} ~/Downloads/zzz-wp/testimonials-widget-premium.zip aihrus@aihr.us:~/public_html/wp-content/uploads/edd/2012/11/. || exit 1;
-
-# TODO auto feed our txt files to WP validator
-##	URL_VALIDATE="http://wordpress.org/extend/plugins/about/validator/"
-##	TXTS=`ls *.txt`
-##
-##	for TXT in ${TXTS}
-##	do
-##		echo Prepare ${TXT} for validation
-##		# read TXT contents
-##		# convert TXT to _POST
-##		# submit URL
-##		# open ${URL_VALIDATE} ${TXT}
-##	done
-##
-##	echo
+${CMD_SCP} ~/Downloads/zzz-wp/${PLUGIN}.zip aihrus@aihr.us:~/subdomains/updates/update/. || exit 1;
+${CMD_SCP} ~/Downloads/zzz-wp/${PLUGIN}.zip aihrus@aihr.us:~/public_html/wp-content/uploads/edd/2012/06/. || exit 1;
 
 open http://wordpress.org/extend/plugins/about/validator/
 
 # changelog
-open http://aihr.us/wp-admin/post.php?post=16129\&action=edit
+open http://aihr.us/wp-admin/post.php?post=17453\&action=edit
 
-mvim ${SITE_WP_PLUGINS}/testimonials-widget-premium/readme.txt
+mvim ${SITE_WP_PLUGINS}/${PLUGIN}/readme.txt
 # details
-open http://aihr.us/wp-admin/post.php?post=14635\&action=edit
+open http://aihr.us/wp-admin/post.php?post=17433\&action=edit
 # product
-open http://aihr.us/wp-admin/post.php?post=14714\&action=edit
+open http://aihr.us/wp-admin/post.php?post=17383\&action=edit
 
 mvim ~/Sites/zzz/testimonials-widget-premium/packages.php
 echo ${CMD_SCP} ~/Sites/zzz/testimonials-widget-premium/packages.php aihrus@aihr.us:~/subdomains/updates/packages.php
