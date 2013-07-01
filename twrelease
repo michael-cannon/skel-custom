@@ -20,4 +20,10 @@ fi
 
 wpsvnrelease ${KEY} ${VERSION} || exit 1;
 
-open http://aihr.us/wp-admin/post.php?post=16105\&action=edit
+${CMD_SCP} ~/Downloads/zzz-wp/${PLUGIN}.zip aihrus@aihr.us:~/public_html/wp-content/uploads/edd/2013/05/. || exit 1;
+
+mvim ${SITE_WP_PLUGINS}/${PLUGIN}/readme.txt
+# details
+open http://aihr.us/wp-admin/post.php?post=16103\&action=edit
+# product
+open http://aihr.us/wp-admin/post.php?post=16754\&action=edit

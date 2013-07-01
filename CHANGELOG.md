@@ -13,3 +13,5 @@
 * Port wppackage to wprelease
 * Create Custom Bulk/Quick Edit Premium release helper
 * Clean out all git components
+* Use PLUGIN key
+* Push TW zip file to Aihrus
