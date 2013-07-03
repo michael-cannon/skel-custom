@@ -34,7 +34,7 @@ do
 		# todo indent case blocks
 
 		# PHP compile test
-		php -l ${FILE} >> ${FILE_CODE_QA}
+		php -lf ${FILE} >> ${FILE_CODE_QA}
 	done
 
 	# remove phptidy 

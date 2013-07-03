@@ -5,6 +5,10 @@
 # @author Michael Cannon <mc@aihr.us>
 
 KEY="twp"
+DIR_UPLOAD="2012/11"
+ID_POST=14635
+ID_PRODUCT=14714
+ID_CHANGELOG=16129
 
 source ~/.skel/bin/custom/wpinit ${KEY}
 echo
@@ -18,21 +22,4 @@ fi
 
 VERSION=${1}
 wprelease ${KEY} ${VERSION} || exit 1;
-
-${CMD_SCP} ~/Downloads/zzz-wp/${PLUGIN}.zip aihrus@aihr.us:~/subdomains/updates/update/. || exit 1;
-${CMD_SCP} ~/Downloads/zzz-wp/${PLUGIN}.zip aihrus@aihr.us:~/public_html/wp-content/uploads/edd/2012/11/. || exit 1;
-
-open http://wordpress.org/extend/plugins/about/validator/
-
-# changelog
-open http://aihr.us/wp-admin/post.php?post=16129\&action=edit
-
-mvim ${SITE_WP_PLUGINS}/${PLUGIN}/readme.txt
-# details
-open http://aihr.us/wp-admin/post.php?post=14635\&action=edit
-# product
-open http://aihr.us/wp-admin/post.php?post=14714\&action=edit
-
-mvim ~/Sites/zzz/testimonials-widget-premium/packages.php
-echo ${CMD_SCP} ~/Sites/zzz/testimonials-widget-premium/packages.php aihrus@aihr.us:~/subdomains/updates/packages.php
-echo
+wpdocument ${KEY} ${DIR_UPLOAD} ${ID_POST} ${ID_PRODUCT} ${ID_CHANGELOG}

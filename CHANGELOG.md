@@ -15,3 +15,5 @@
 * Clean out all git components
 * Use PLUGIN key
 * Push TW zip file to Aihrus
+* Centralize WordPress related documentation via wpdocument
+* revise wpsvnrelease as wpsvn

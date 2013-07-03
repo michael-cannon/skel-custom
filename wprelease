@@ -30,8 +30,3 @@ git checkout master || exit 1;
 cd -
 
 wpzip ${@} || exit 1;
-
-open https://github.com/michael-cannon/${PLUGIN}/blob/master/CHANGELOG.md
-open http://wordpress.org/extend/plugins/${PLUGIN}/
-open http://testwp.localhost/wp-admin/update-core.php
-open http://aihr.us/wp-admin/update-core.php

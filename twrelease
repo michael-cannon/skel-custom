@@ -5,6 +5,9 @@
 # @author Michael Cannon <mc@aihr.us>
 
 KEY="tw"
+DIR_UPLOAD="2012/11"
+ID_POST=16103
+ID_PRODUCT=16754
 
 source ~/.skel/bin/custom/wpinit ${KEY}
 echo
@@ -18,12 +21,6 @@ else
 	VERSION=${1}
 fi
 
-wpsvnrelease ${KEY} ${VERSION} || exit 1;
-
-${CMD_SCP} ~/Downloads/zzz-wp/${PLUGIN}.zip aihrus@aihr.us:~/public_html/wp-content/uploads/edd/2013/05/. || exit 1;
-
-mvim ${SITE_WP_PLUGINS}/${PLUGIN}/readme.txt
-# details
-open http://aihr.us/wp-admin/post.php?post=16103\&action=edit
-# product
-open http://aihr.us/wp-admin/post.php?post=16754\&action=edit
+wprelease ${KEY} ${VERSION} || exit 1;
+wpsvn ${KEY} ${VERSION} || exit 1;
+wpdocument ${KEY} ${DIR_UPLOAD} ${ID_POST} ${ID_PRODUCT}
