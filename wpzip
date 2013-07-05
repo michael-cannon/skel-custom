@@ -16,12 +16,19 @@ for PLUGIN in ${PLUGINS}
 do
 	cd ${DIR_DOWNLOADS}
 
+	if [[ "${PLUGIN}" =~ .*-premium.* ]]
+	then
+		IS_PREMIUM=1
+	else
+		IS_PREMIUM=0
+	fi
+
 	if [[ -d ${PLUGIN} ]]
 	then
 		rm -rf ${PLUGIN}
 	fi
 
-	git clone git@github.com:michael-cannon/${PLUGIN}.git ${PLUGIN} || exit 1
+	git clone git@github.com:michael-cannon/${PLUGIN}.git || exit 1
 
 	cd ${PLUGIN}
 	find . -type d \( -name ".git*" -o -name ".svn" \) -exec rm -rf {} \;
@@ -52,25 +59,26 @@ do
 
 	cd ${DIR_DOWNLOADS}
 
-	# only do no screenshot versions for premium
-
-	FILE_ZIP="${PLUGIN}-no-screenshots.zip"
-	if [[ -e ${FILE_ZIP} ]]
+	if [[ 1 = ${IS_PREMIUM} ]]
 	then
-		rm -f ${FILE_ZIP}
-	fi
-
-	zip -r ${FILE_ZIP} ${PLUGIN}
-
-	if [[ -n ${VERSION} ]]
-	then
-		FILE_ZIP="${PLUGIN}-${VERSION}-no-screenshots.zip"
+		FILE_ZIP="${PLUGIN}-no-screenshots.zip"
 		if [[ -e ${FILE_ZIP} ]]
 		then
 			rm -f ${FILE_ZIP}
 		fi
 
 		zip -r ${FILE_ZIP} ${PLUGIN}
+
+		if [[ -n ${VERSION} ]]
+		then
+			FILE_ZIP="${PLUGIN}-${VERSION}-no-screenshots.zip"
+			if [[ -e ${FILE_ZIP} ]]
+			then
+				rm -f ${FILE_ZIP}
+			fi
+
+			zip -r ${FILE_ZIP} ${PLUGIN}
+		fi
 	fi
 
 	rm -rf ${PLUGIN}

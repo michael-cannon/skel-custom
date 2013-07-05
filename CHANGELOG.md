@@ -17,3 +17,5 @@
 * Push TW zip file to Aihrus
 * Centralize WordPress related documentation via wpdocument
 * revise wpsvnrelease as wpsvn
+* Remove in2code client references
+* Revise premium handling

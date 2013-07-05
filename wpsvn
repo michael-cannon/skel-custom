@@ -6,7 +6,7 @@
 
 if [[ -z ${1} || -z ${2} ]]
 then
-	echo ${0} plugin-key version-number
+	echo `basename ${0}` plugin-key version-number
 	echo
 	exit 1
 else

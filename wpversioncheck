@@ -8,7 +8,7 @@ echo
 
 if [[ -z ${2} ]]
 then
-	echo "What's the version number?"
+	echo `basename ${0}` plugin-key version-number
 	echo
 	exit 1
 fi

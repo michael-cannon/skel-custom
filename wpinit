@@ -78,22 +78,16 @@ case "${1}" in
 		PLUGIN="wordpress-starter"
 		PLUGINS="wordpress-starter"
 		;;
+
+	* )
+		PLUGINS="
+		custom-bulkquick-edit
+		custom-bulkquick-edit-premium
+		flickr-shortcode-importer
+		testimonials-widget
+		testimonials-widget-premium
+		typo3-importer
+		wordpress-starter
+		"
+		;;
 esac
-
-if [[ -z ${PLUGINS} ]]
-then
-	PLUGINS="
-	custom-bulkquick-edit
-	custom-bulkquick-edit-premium
-	flickr-shortcode-importer
-	testimonials-widget
-	testimonials-widget-premium
-	typo3-importer
-	wordpress-starter
-	"
-fi
-
-if [[ -z ${SCRIPTS} ]]
-then
-	SCRIPTS=
-fi

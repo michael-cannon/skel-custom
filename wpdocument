@@ -6,7 +6,7 @@
 
 if [[ -z ${1} || -z ${2} || -z ${3} || -z ${4} ]]
 then
-	echo ${0} plugin-key upload-dir id-post id-product
+	echo `basename ${0}` plugin-key upload-dir id-post id-product [id-changelog] [id-api] [id-todo] 
 	echo
 	exit 1
 else
