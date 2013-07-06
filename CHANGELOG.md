@@ -19,3 +19,4 @@
 * revise wpsvnrelease as wpsvn
 * Remove in2code client references
 * Revise premium handling
+* Moved WordPress helper scripts to public repository
