@@ -8,7 +8,7 @@
 # @author Michael Cannon <mc@aihr.us>
 
 
-source ~/.skel/bin/custom/wpinit ${@}
+source ~/.skel/bin/wpinit ${@}
 echo
 
 # coding standard checks

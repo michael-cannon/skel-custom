@@ -10,7 +10,7 @@ ID_POST=14635
 ID_PRODUCT=14714
 ID_CHANGELOG=16129
 
-source ~/.skel/bin/custom/wpinit ${KEY}
+source ~/.skel/bin/wpinit ${KEY}
 echo
 
 if [[ -z ${1} ]]

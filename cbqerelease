@@ -9,7 +9,7 @@ DIR_UPLOAD="2013/06"
 ID_POST=17428
 ID_PRODUCT=17555
 
-source ~/.skel/bin/custom/wpinit ${KEY}
+source ~/.skel/bin/wpinit ${KEY}
 echo
 
 if [[ -z ${1} ]]

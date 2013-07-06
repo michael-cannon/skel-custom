@@ -11,7 +11,7 @@ ID_PRODUCT=17383
 ID_CHANGELOG=17453
 ID_API=17476
 
-source ~/.skel/bin/custom/wpinit ${KEY}
+source ~/.skel/bin/wpinit ${KEY}
 echo
 
 if [[ -z ${1} ]]
