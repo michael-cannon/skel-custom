@@ -14,7 +14,7 @@ RSYNC_MODS="--max-size=4M --include=fileadmin/pageassets_3.0/ --exclude=**/filea
 # load live2local function helpers
 source ~/.skel/scripts/live2local.sh
 
-LOCAL_MODS[1]="wget -O .htaccess https://raw.github.com/michael-cannon/in2master/master/_.htaccess"
+LOCAL_MODS[1]="if [[ ! -e .htaccess ]]; then wget -O .htaccess https://raw.github.com/michael-cannon/in2master/master/_.htaccess; fi"
 LOCAL_MODS[2]="if [[ -e index.html ]]; then mv index.html index.maint.html; fi"
 
 l2l_site_typo3
