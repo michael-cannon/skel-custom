@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# Prepare Custom Bulk/Quick Edit for release
+# Prepare Flickr Shortcode Importer for release
 #
 # @author Michael Cannon <mc@aihr.us>
 
-KEY="cbqe"
-DIR_UPLOAD="2013/06"
-ID_POST=17428
-ID_PRODUCT=17555
+KEY="fsi"
+DIR_UPLOAD="2013/05"
+ID_PRODUCT=16732
+ID_POST=
 
 source ~/.skel/bin/wpinit ${KEY}
 echo
@@ -23,4 +23,4 @@ fi
 
 wprelease ${KEY} ${VERSION} || exit 1;
 wpsvn ${KEY} ${VERSION} || exit 1;
-wpdocument ${KEY} ${DIR_UPLOAD} ${ID_POST} ${ID_PRODUCT}
+wpdocument ${KEY} ${DIR_UPLOAD} ${ID_PRODUCT} ${ID_POST}

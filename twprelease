@@ -6,8 +6,8 @@
 
 KEY="twp"
 DIR_UPLOAD="2012/11"
-ID_POST=14635
 ID_PRODUCT=14714
+ID_POST=14635
 ID_CHANGELOG=16129
 
 source ~/.skel/bin/wpinit ${KEY}
@@ -22,4 +22,4 @@ fi
 
 VERSION=${1}
 wprelease ${KEY} ${VERSION} || exit 1;
-wpdocument ${KEY} ${DIR_UPLOAD} ${ID_POST} ${ID_PRODUCT} ${ID_CHANGELOG}
+wpdocument ${KEY} ${DIR_UPLOAD} ${ID_PRODUCT} ${ID_POST} ${ID_CHANGELOG}
