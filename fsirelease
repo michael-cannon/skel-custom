@@ -8,6 +8,9 @@ KEY="fsi"
 DIR_UPLOAD="2013/05"
 ID_PRODUCT=16732
 ID_POST=
+ID_CHANGELOG=
+ID_API=
+ID_TODO=
 
 source ~/.skel/bin/wpinit ${KEY}
 echo
@@ -23,4 +26,4 @@ fi
 
 wprelease ${KEY} ${VERSION} || exit 1;
 wpsvn ${KEY} ${VERSION} || exit 1;
-wpdocument ${KEY} ${DIR_UPLOAD} ${ID_PRODUCT} ${ID_POST}
+wpdocument ${KEY} ${DIR_UPLOAD} ${ID_PRODUCT} ${ID_POST} ${ID_CHANGELOG} ${ID_API} ${ID_TODO}
