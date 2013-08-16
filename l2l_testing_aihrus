@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Helper for pulling DOMAIN_NAME live to localhost
+#
+# @author Michael Cannon <michael@peimic.com>
+
+# configuration vars
+DOMAIN_NAME="testing.aihr.us"
+DOMAIN_USER="aihrus"
+WWW_USER="www"
+REMOTE_DIR_WWW="/home/aihrus/subdomains/testing"
+
+# load live2local function helpers
+source ~/.skel/scripts/live2local.sh
+
+l2l_site_wordpress
+l2l_do_sync ${@}
