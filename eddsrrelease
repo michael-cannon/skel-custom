@@ -5,6 +5,7 @@
 # @author Michael Cannon <mc@aihr.us>
 
 KEY="esr"
+IS_PREMIUM=1
 DIR_UPLOAD="2013/07"
 ID_PRODUCT=17732
 ID_POST=17717
