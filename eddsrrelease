@@ -5,7 +5,6 @@
 # @author Michael Cannon <mc@aihr.us>
 
 KEY="esr"
-IS_PREMIUM=1
 DIR_UPLOAD="2013/07"
 ID_PRODUCT=17732
 ID_POST=17717
@@ -25,4 +24,4 @@ fi
 
 VERSION=${1}
 wprelease ${KEY} ${VERSION} || exit 1;
-wpdocument ${KEY} ${DIR_UPLOAD} ${ID_PRODUCT} ${ID_POST} ${ID_CHANGELOG} ${ID_API} ${ID_TODO}
+wpdocument ${KEY} ${DIR_UPLOAD} ${ID_PRODUCT} ${ID_POST} ${ID_CHANGELOG} ${ID_API} ${ID_TODO} 1
