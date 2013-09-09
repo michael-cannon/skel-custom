@@ -1,6 +1,7 @@
 # CHANGELOG Custom .skel
 
 ## TBD
+* Add premium bit
 * Remove eddsr premium and product id
 * Add in cbqe alias for custom-bulk-quick-edit
 * Add version ability for wpzip
