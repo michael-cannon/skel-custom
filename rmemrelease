@@ -7,7 +7,7 @@
 KEY="rmem"
 DIR_UPLOAD="2013/09"
 ID_PRODUCT=18566
-ID_POST=18567
+ID_POST=18570
 
 source ~/.skel/bin/wpinit ${KEY}
 echo
