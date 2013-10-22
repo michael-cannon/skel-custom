@@ -5,6 +5,7 @@
 * Add premium bit
 * Add remove-extra-media release helper
 * Add version ability for wpzip
+* Add wpsvn skip check
 * Centralize WordPress related documentation via wpdocument
 * Check exit codes
 * Check plugins for VERSION in class code
@@ -13,6 +14,8 @@
 * Don't push if not wanted
 * Focus on git
 * Moved WordPress helper scripts to public repository
+* No EDD Sales Recovery product page
+* Open more test screens for TW
 * Port wppackage to wprelease
 * Push TW zip file to Aihrus
 * Remove eddsr premium and product id
