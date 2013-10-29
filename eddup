@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# EDD GitHub fork sync helper
+#
+# @ref https://help.github.com/articles/syncing-a-fork
+# @author Michael Cannon <mc@aihr.us>
+
+cd ~/Sites/aihrus/wp-content/plugins/easy-digital-downloads
+git remote add upstream https://github.com/easydigitaldownloads/Easy-Digital-Downloads.git
+
+gitforksync

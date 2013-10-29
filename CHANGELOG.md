@@ -1,6 +1,8 @@
 # CHANGELOG Custom .skel
 
 ## TBD
+* Add EDD GitHub fork sync helper
+* Add Prepare EDD Retroactive Licensing for release
 * Add in cbqe alias for custom-bulk-quick-edit
 * Add premium bit
 * Add remove-extra-media release helper
