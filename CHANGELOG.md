@@ -3,11 +3,13 @@
 ## TBD
 * Add EDD GitHub fork sync helper
 * Add Prepare EDD Retroactive Licensing for release
+* Add aihrus framework helpers
 * Add in cbqe alias for custom-bulk-quick-edit
 * Add premium bit
 * Add remove-extra-media release helper
 * Add version ability for wpzip
 * Add wpsvn skip check
+* CBQEP WordPress SEO release helper
 * Centralize WordPress related documentation via wpdocument
 * Check exit codes
 * Check plugins for VERSION in class code

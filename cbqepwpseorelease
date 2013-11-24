@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Prepare Custom Bulk/Quick Edit Premium for release
+#
+# @author Michael Cannon <mc@aihr.us>
+
+KEY="cbqepwpseo"
+DIR_UPLOAD="2013/11"
+ID_PRODUCT=19963
+ID_POST=19967
+ID_CHANGELOG=19971
+ID_API=19969
+ID_TODO=19973
+
+source ~/.skel/bin/wpinit ${KEY}
+echo
+
+if [[ -z ${1} ]]
+then
+	echo "What's the version number?"
+	echo
+	exit 1
+fi
+
+VERSION=${1}
+wprelease ${KEY} ${VERSION} || exit 1;
+wpdocument ${KEY} ${DIR_UPLOAD} ${ID_PRODUCT} ${ID_POST} ${ID_CHANGELOG} ${ID_API} ${ID_TODO} 1
