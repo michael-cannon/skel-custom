@@ -37,11 +37,17 @@ open http://wp.localhost/wp-admin/edit.php?post_type=testimonials-widget\&page=t
 echo Do widget options work?
 open http://wp.localhost/wp-admin/widgets.php
 
+echo Do widgets work?
+open http://wp.localhost/tww/
+
 echo Do shortcodes work?
-open http://wp.localhost/tw-testing/
+open http://wp.localhost/tl/
 
 echo Does form work?
-open http://wp.localhost/twp-form/?testmode=1
+open http://wp.localhost/twpf/?testmode=1
+
+echo Does good work?
+open http://wp.localhost/good/
 
 echo Does add view work?
 open http://wp.localhost/wp-admin/post-new.php?post_type=testimonials-widget
@@ -49,8 +55,8 @@ open http://wp.localhost/wp-admin/post-new.php?post_type=testimonials-widget
 echo Does single view work?
 open http://wp.localhost/testimonial/robert-harm/
 
-echo Do theme functions work?
-open http://wp.localhost/theme-functions/
+# echo Do theme functions work?
+# open http://wp.localhost/theme-functions/
 
 SITE="testwp"
 l2l_config="/Users/michael/.ssh/l2l_config/${SITE}"

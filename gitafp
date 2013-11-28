@@ -1,3 +1,4 @@
 git subtree pull -P lib/aihrus -m 'Update aihrus framework' --squash aihrus master
+cp -r ~/Sites/wp/wp-content/plugins/aihrus-framework/* lib/aihrus/
 echo "git commit -a -m 'Update aihrus framework'"
 echo "git push origin master"
