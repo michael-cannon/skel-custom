@@ -1,5 +1,4 @@
 git remote add aihrus git@github.com:michael-cannon/aihrus-framework.git
-git fetch aihrus 
 git subtree add -P lib/aihrus --squash aihrus master
 git commit -a -m "Readd aihrus framework"
 git push origin master

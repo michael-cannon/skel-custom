@@ -1,4 +1,3 @@
-# git fetch aihrus
 git subtree pull -P lib/aihrus -m 'Update aihrus framework' --squash aihrus master
 echo "git commit -a -m 'Update aihrus framework'"
 echo "git push origin master"
