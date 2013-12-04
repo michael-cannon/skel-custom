@@ -1,13 +1,16 @@
 #!/bin/bash
 
-# Prepare Remove Extra Media for release
+# Prepare GC Testimonials to Testimonials for release
 #
 # @author Michael Cannon <mc@aihr.us>
 
-KEY="rmem"
-DIR_UPLOAD="2013/09"
-ID_PRODUCT=18566
+KEY="gct2t"
+DIR_UPLOAD="2013/12"
+ID_PRODUCT=20220
 ID_POST=0
+ID_CHANGELOG=0
+ID_API=0
+ID_TODO=0
 
 source ~/.skel/bin/wpinit ${KEY}
 echo
@@ -28,4 +31,4 @@ then
 	wpsvn ${KEY} ${VERSION} || exit 1;
 fi
 
-wpdocument ${KEY} ${DIR_UPLOAD} ${ID_PRODUCT} ${ID_POST}
+wpdocument ${KEY} ${DIR_UPLOAD} ${ID_PRODUCT} ${ID_POST} ${ID_CHANGELOG} ${ID_API} ${ID_TODO}
