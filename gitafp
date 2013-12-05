@@ -4,6 +4,7 @@ if [[ -z ${1} ]]
 then
 	git subtree pull -P lib/aihrus -m 'Update aihrus framework' --squash aihrus master
 	cp -r ~/Sites/wp/wp-content/plugins/aihrus-framework/* lib/aihrus/
+	find . -type f \( -name '*.php' -o -name '*.inc' \) -exec php -lf {} \;
 else
 	git commit -a -m 'Update aihrus framework'
 	git push origin master

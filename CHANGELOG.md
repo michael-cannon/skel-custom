@@ -1,6 +1,7 @@
 # CHANGELOG Custom .skel
 
 ## TBD
+* wpsvn helpers
 * Add EDD GitHub fork sync helper
 * Add Prepare EDD Retroactive Licensing for release
 * Add aihrus framework helpers
