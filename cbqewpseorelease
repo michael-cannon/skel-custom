@@ -4,13 +4,13 @@
 #
 # @author Michael Cannon <mc@aihr.us>
 
-KEY="cbqepwpseo"
+KEY="cbqewpseo"
 DIR_UPLOAD="2013/11"
 ID_PRODUCT=19963
 ID_POST=19967
 ID_CHANGELOG=19971
 ID_API=19969
-ID_TODO=19973
+ID_TODO=
 
 source ~/.skel/bin/wpinit ${KEY}
 echo
