@@ -10,7 +10,7 @@ ID_PRODUCT=19963
 ID_POST=19967
 ID_CHANGELOG=19971
 ID_API=19969
-ID_TODO=
+ID_TODO=0
 
 source ~/.skel/bin/wpinit ${KEY}
 echo

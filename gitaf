@@ -1,4 +1,13 @@
+#!/bin/bash
+
+LIB_DIR="includes/libraries"
+LIB_AIHRUS="${LIB_DIR}/aihrus-framework"
+if [[ ! -e ${LIB_DIR} ]]
+then
+	mkdir -p ${LIB_DIR}
+fi
+
 git remote add aihrus git@github.com:michael-cannon/aihrus-framework.git
-git subtree add -P lib/aihrus --squash aihrus master
+git subtree add -P ${LIB_AIHRUS} --squash aihrus master
 git commit -a -m "Readd aihrus framework"
 git push origin master
