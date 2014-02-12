@@ -1,14 +1,14 @@
 # CHANGELOG Custom .skel
 
 ## TBD
-* wpsvn helpers
-* Add EDD GitHub fork sync helper
-* Add Prepare EDD Retroactive Licensing for release
 * Add aihrus framework helpers
+* Add EDD GitHub fork sync helper
 * Add in cbqe alias for custom-bulk-quick-edit
 * Add premium bit
+* Add Prepare EDD Retroactive Licensing for release
 * Add remove-extra-media release helper
 * Add version ability for wpzip
+* Add WooTheme Testimonials to Testimonials for release helper
 * Add wpsvn skip check
 * CBQEP WordPress SEO release helper
 * Centralize WordPress related documentation via wpdocument
@@ -25,11 +25,13 @@
 * Push TW zip file to Aihrus
 * Remove eddsr premium and product id
 * Remove in2code client references
+* Remove premium bit from wpdocument
 * Rename custom-bulkquick-edit*
 * Replace wp-phptidy.php with phptidy.php
 * Revise ID_POST ordering
 * Revise premium handling
+* revise wpsvnrelease as wpsvn
 * Turn off wpprep during testing - takes too much time
 * Update clamscan config
 * Use PLUGIN key
-* revise wpsvnrelease as wpsvn
+* wpsvn helpers

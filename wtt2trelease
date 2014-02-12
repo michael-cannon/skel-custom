@@ -1,15 +1,15 @@
 #!/bin/bash
 
-# Prepare Custom Bulk/Quick Edit Premium for release
+# Prepare WooTheme Testimonials to Testimonials for release
 #
 # @author Michael Cannon <mc@aihr.us>
 
-KEY="cbqep"
-DIR_UPLOAD="2012/06"
-ID_PRODUCT=17383
-ID_POST=17433
-ID_CHANGELOG=17453
-ID_API=17476
+KEY="wtt2t"
+DIR_UPLOAD="2014/01"
+ID_PRODUCT=24466
+ID_POST=0
+ID_CHANGELOG=0
+ID_API=0
 ID_TODO=0
 
 source ~/.skel/bin/wpinit ${KEY}
@@ -20,8 +20,17 @@ then
 	echo "What's the version number?"
 	echo
 	exit 1
+else
+	VERSION=${1}
 fi
 
-VERSION=${1}
 wprelease ${KEY} ${VERSION} || exit 1;
+
+if [[ -n ${2} ]]
+then
+	wpsvn ${KEY} ${VERSION} || exit 1;
+else
+	echo "wpsvn ${KEY} ${VERSION}"
+fi
+
 wpdocument ${KEY} ${DIR_UPLOAD} ${ID_PRODUCT} ${ID_POST} ${ID_CHANGELOG} ${ID_API} ${ID_TODO}
