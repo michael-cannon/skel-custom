@@ -1,5 +1,8 @@
 #!/bin/bash
 
+source ~/.skel/bin/wpinit ${@}
+echo
+
 LIB_DIR="includes/libraries"
 LIB_AIHRUS="${LIB_DIR}/aihrus-framework"
 if [[ ! -e ${LIB_DIR} ]]
@@ -7,7 +10,15 @@ then
 	mkdir -p ${LIB_DIR}
 fi
 
+aihrus_version=${AIHR_VERSION}
+if [[ -n ${1} ]]
+then
+	aihrus_version=${1}
+fi
+
+aihrus_version="master"
+
 git remote add aihrus git@github.com:michael-cannon/aihrus-framework.git
-git subtree add -P ${LIB_AIHRUS} --squash aihrus master
-git commit -a -m "Readd aihrus framework"
+git subtree add -P ${LIB_AIHRUS} --squash aihrus ${aihrus_version}
+git commit -a -m "Add aihrus framework"
 git push origin master
