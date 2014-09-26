@@ -10,15 +10,18 @@ then
 	mkdir -p ${LIB_DIR}
 fi
 
-aihrus_version=${AIHR_VERSION}
+REMOTE_NAME="aihrus"
+
+AIHRUS_VERSION=${AIHR_VERSION}
 if [[ -n ${1} ]]
 then
-	aihrus_version=${1}
+	AIHRUS_VERSION=${1}
+else
+	AIHRUS_VERSION="master"
 fi
 
-aihrus_version="master"
-
-git remote add aihrus git@github.com:michael-cannon/aihrus-framework.git
-git subtree add -P ${LIB_AIHRUS} --squash aihrus ${aihrus_version}
+git remote add ${REMOTE_NAME} git@github.com:michael-cannon/aihrus-framework.git
+git fetch ${REMOTE_NAME}
+git subtree add -P ${LIB_AIHRUS} --squash ${REMOTE_NAME} ${AIHRUS_VERSION}
 git commit -a -m "Add aihrus framework"
 git push origin master
