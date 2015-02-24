@@ -5,16 +5,16 @@ clear
 
 echo
 echo "Peimic"
-grep -nrsI -e "Peimic\|peimic" *
+grep -nrsI --exclude-dir=languages -e "Peimic\|peimic" *
 echo
 echo "Aihrus"
-grep -nrsI -e "aihr.us\|Aihrus\|aihrus" *
+grep -nrsI --exclude-dir=languages -e "aihr.us\|Aihrus\|aihrus" *
 echo
 echo "Michael"
-grep -nrsI -e "mc@\|Michael\|Michael Cannon\|michael@" *
+grep -nrsI --exclude-dir=languages -e "mc@\|Michael\|Michael Cannon\|michael@" *
 echo
 echo "2014"
-grep -nrsI "2014" *
+grep -nrsI --exclude-dir=languages "2014" *
 echo
 echo "saurabhd as contributor"
-grep -nrsI "Contributors" *
+grep -nrsI --exclude-dir=languages "Contributors" *
