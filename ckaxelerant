@@ -1,20 +1,26 @@
 #!/bin/bash
 
+GREP="/usr/local/bin/grep -nrsI --exclude-dir=languages --exclude-dir=libraries"
+
 clear
 clear
 
 echo
 echo "Peimic"
-grep -nrsI --exclude-dir=languages -e "Peimic\|peimic" *
+${GREP} -e "Peimic\|peimic" *
 echo
 echo "Aihrus"
-grep -nrsI --exclude-dir=languages -e "aihr.us\|Aihrus\|aihrus" *
+${GREP} -e "aihr.us\|Aihrus\|aihrus" *
 echo
 echo "Michael"
-grep -nrsI --exclude-dir=languages -e "mc@\|Michael\|Michael Cannon\|michael@" *
+${GREP} -e "mc@\|Michael\|Michael Cannon\|michael@" *
 echo
 echo "2014"
-grep -nrsI --exclude-dir=languages "2014" *
+${GREP} "2014" *
+echo
+echo "tests WordPress-Core"
+${GREP} "WordPress-Core" ci
+${GREP} "WordPress-Core" tests
 echo
 echo "saurabhd as contributor"
-grep -nrsI --exclude-dir=languages "Contributors" *
+${GREP} "Contributors" *
