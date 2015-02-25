@@ -22,8 +22,7 @@ echo "Aihrus Framework 1.2.0"
 ${GREP} -e "AIHR_VERSION.*'1.2.0'" *
 echo
 echo "tests WordPress-Core"
-${GREP} "WordPress-Core" ci
-${GREP} "WordPress-Core" tests
+${GREP} "WordPress-Core" ci tests
 echo
 echo "Contributors ,saurabhd"
 ${GREP} "Contributors" *
