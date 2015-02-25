@@ -18,9 +18,15 @@ echo
 echo "2014"
 ${GREP} "2014" *
 echo
+echo "Aihrus Framework 1.2.0"
+${GREP} -e "AIHR_VERSION.*'1.2.0'" *
+echo
 echo "tests WordPress-Core"
 ${GREP} "WordPress-Core" ci
 ${GREP} "WordPress-Core" tests
 echo
-echo "saurabhd as contributor"
+echo "Contributors ,saurabhd"
 ${GREP} "Contributors" *
+echo
+echo "AF out of date - https://nodedesk.zendesk.com/hc/en-us/articles/202381391"
+${GREP} "https://aihrus.zendesk.com/entries/35689458" *
