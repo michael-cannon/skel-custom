@@ -89,4 +89,4 @@ fi
 ### echo
 
 echo How does live look?
-open http://aihr.us/good-work-deserves-good-words-testimonials-widget-examples/
+open ${DOC_DOMAIN}/good-work-deserves-good-words-testimonials-widget-examples/

@@ -26,12 +26,12 @@ VERSION=${1}
 wprelease ${KEY} ${VERSION} || exit 1;
 wpdocument ${KEY} ${DIR_UPLOAD} ${ID_PRODUCT} ${ID_POST} ${ID_CHANGELOG} ${ID_API} ${ID_TODO}
 
-open http://aihr.us/wp-admin/post.php?post=435668\&action=edit
+open ${DOC_DOMAIN}/wp-admin/post.php?post=435668\&action=edit
 
-open http://aihr.us/wp-admin/post.php?post=435676\&action=edit
+open ${DOC_DOMAIN}/wp-admin/post.php?post=435676\&action=edit
 
 open https://github.com/michael-cannon/testimonials-widget-premium/blob/master/UPGRADING.md
-open http://aihr.us/wp-admin/post.php?post=435680\&action=edit
+open ${DOC_DOMAIN}/wp-admin/post.php?post=435680\&action=edit
 
 open https://github.com/michael-cannon/testimonials-widget-premium/blob/master/DEPRECATED.md
-open http://aihr.us/wp-admin/post.php?post=435693\&action=edit
+open ${DOC_DOMAIN}/wp-admin/post.php?post=435693\&action=edit
