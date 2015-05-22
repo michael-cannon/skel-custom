@@ -31,7 +31,7 @@ open ${DOC_DOMAIN}/wp-admin/post.php?post=435668\&action=edit
 open ${DOC_DOMAIN}/wp-admin/post.php?post=435676\&action=edit
 
 open https://github.com/michael-cannon/testimonials-widget-premium/blob/master/UPGRADING.md
-open ${DOC_DOMAIN}/wp-admin/post.php?post=435680\&action=edit
+open ${DOC_DOMAIN}/wp-admin/post.php?post=1301973\&action=edit
 
 open https://github.com/michael-cannon/testimonials-widget-premium/blob/master/DEPRECATED.md
 open ${DOC_DOMAIN}/wp-admin/post.php?post=435693\&action=edit
