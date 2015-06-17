@@ -6,11 +6,16 @@ clear
 clear
 
 # Update URLs
+perl -pi -e "s#axelerant.cmo#axelerant.com#g" *.php *.md *.txt includes/*.php
+
+perl -pi -e "s#\s+\(email:\s*info\@axelerant.com\)##g" *.php *.md *.txt includes/*.php
 perl -pi -e "s#//axelerant.com/store/#//store.axelerant.com/#g" *.php *.md *.txt includes/*.php
 perl -pi -e "s#/axelerant.com/become-beta-tester/#/store.axelerant.com/become-beta-tester/#g" *.php *.md *.txt includes/*.php
 perl -pi -e "s#/axelerant.com/best-wordpress#/store.axelerant.com/best-wordpress#g" *.php *.md *.txt includes/*.php
+perl -pi -e "s#/axelerant.com/custom-bulkquick#/store.axelerant.com/custom-bulkquick#g" *.php *.md *.txt includes/*.php
 perl -pi -e "s#/axelerant.com/downloads#/store.axelerant.com/downloads#g" *.php *.md *.txt includes/*.php
 perl -pi -e "s#/axelerant.com/testimonials-examples/#/store.axelerant.com/testimonials-examples/#g" *.php *.md *.txt includes/*.php
+perl -pi -e "s#/axelerant.com/wordpress-bulk#/store.axelerant.com/wordpress-bulk#g" *.php *.md *.txt includes/*.php
 perl -pi -e "s#http://axelerant#https://axelerant#g" *.php *.md *.txt includes/*.php
 perl -pi -e "s#support\@axelerant.com#support\@nodedesk.com#g" *.php *.md *.txt includes/*.php
 
@@ -37,7 +42,7 @@ echo "CONTRIBUTORS - ,saurabhd,subharanjan"
 ${GREP} "Contributors" *
 echo
 echo "REQS - Aihrus Framework 1.2.2"
-${GREP} -e "AIHR_VERSION.*'1.2.2'" *
+${GREP} -e "AIHR_VERSION.*'1.2.2" *
 echo
 echo "TESTS - WordPress-Core"
 ${GREP} "WordPress-Core" ci tests
