@@ -1,0 +1,43 @@
+#!/bin/bash
+
+GREP="/usr/local/bin/grep -nrsI --exclude-dir=languages --exclude-dir=libraries"
+
+clear
+clear
+
+echo
+echo "BRAND - Aihrus"
+${GREP} -e "Aihrus\>\|aihrus\.{0}" *
+echo
+echo "BRAND - Michael"
+${GREP} -e "mc@\|Michael\>\|Michael Cannon\|michael@" *
+echo
+echo "BRAND - Peimic"
+${GREP} -e "Peimic\|peimic" *
+echo
+echo "DATE - 2014"
+${GREP} "2014" *
+echo
+echo "EMAIL - support@axelerant.com > support@nodedesk.com"
+${GREP} "support@axelerant.com" *
+echo
+echo "SPELLING - axelerant.cmo"
+${GREP} "axelerant.cmo" *
+echo
+echo "CONTRIBUTORS - ,saurabhd,subharanjan"
+${GREP} "Contributors" *
+echo
+echo "REQS - Aihrus Framework 1.2.1"
+${GREP} -e "AIHR_VERSION.*'1.2.1'" *
+echo
+echo "TESTS - WordPress-Core"
+${GREP} "WordPress-Core" ci tests
+echo
+echo "URL - aihr.us"
+${GREP} -e "aihr.us\|aihrus\." *
+echo
+echo "URL - axelerant.com"
+${GREP} -e "axelerant.com\|axelerant\." *
+echo
+echo "URL - https://nodedesk.zendesk.com/hc/en-us/articles/202381391"
+${GREP} "https://aihrus.zendesk.com/entries/35689458" *
