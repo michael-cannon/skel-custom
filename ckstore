@@ -6,18 +6,24 @@ clear
 clear
 
 # Update URLs
+perl -pi -e "s#\[ '#['#g" *.php *.md *.txt includes/*.php
+perl -pi -e "s#\[ 0 \]#[0]#g" *.php *.md *.txt includes/*.php
+perl -pi -e "s#' ]#']#g" *.php *.md *.txt includes/*.php
+
 perl -pi -e "s#axelerant.cmo#axelerant.com#g" *.php *.md *.txt includes/*.php
 
-perl -pi -e "s#\s+\(email:\s*info\@axelerant.com\)##g" *.php *.md *.txt includes/*.php
-perl -pi -e "s#//axelerant.com/store/#//store.axelerant.com/#g" *.php *.md *.txt includes/*.php
 perl -pi -e "s#/axelerant.com/become-beta-tester/#/store.axelerant.com/become-beta-tester/#g" *.php *.md *.txt includes/*.php
 perl -pi -e "s#/axelerant.com/best-wordpress#/store.axelerant.com/best-wordpress#g" *.php *.md *.txt includes/*.php
 perl -pi -e "s#/axelerant.com/custom-bulkquick#/store.axelerant.com/custom-bulkquick#g" *.php *.md *.txt includes/*.php
 perl -pi -e "s#/axelerant.com/downloads#/store.axelerant.com/downloads#g" *.php *.md *.txt includes/*.php
+perl -pi -e "s#/axelerant.com/edd-sales-recovery#/store.axelerant.com/edd-sales-recovery#g" *.php *.md *.txt includes/*.php
+perl -pi -e "s#/axelerant.com/store/#/store.axelerant.com/#g" *.php *.md *.txt includes/*.php
 perl -pi -e "s#/axelerant.com/testimonials-examples/#/store.axelerant.com/testimonials-examples/#g" *.php *.md *.txt includes/*.php
 perl -pi -e "s#/axelerant.com/wordpress-bulk#/store.axelerant.com/wordpress-bulk#g" *.php *.md *.txt includes/*.php
 perl -pi -e "s#http://axelerant#https://axelerant#g" *.php *.md *.txt includes/*.php
 perl -pi -e "s#support\@axelerant.com#support\@nodedesk.com#g" *.php *.md *.txt includes/*.php
+perl -pi -e "s#\(//axelerant.com#(https://store.axelerant.com#g" *.php *.md *.txt includes/*.php
+perl -pi -e "s#\s+\(email:\s*info\@axelerant.com\)##g" *.php *.md *.txt includes/*.php
 
 echo
 echo "BRAND - Aihrus"
