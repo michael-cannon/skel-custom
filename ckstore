@@ -5,6 +5,15 @@ GREP="/usr/local/bin/grep -nrsI --exclude-dir=languages --exclude-dir=libraries"
 clear
 clear
 
+# Update URLs
+perl -pi -e "s#//axelerant.com/store/#//store.axelerant.com/#g" *.php *.md *.txt includes/*.php
+perl -pi -e "s#/axelerant.com/become-beta-tester/#/store.axelerant.com/become-beta-tester/#g" *.php *.md *.txt includes/*.php
+perl -pi -e "s#/axelerant.com/best-wordpress#/store.axelerant.com/best-wordpress#g" *.php *.md *.txt includes/*.php
+perl -pi -e "s#/axelerant.com/downloads#/store.axelerant.com/downloads#g" *.php *.md *.txt includes/*.php
+perl -pi -e "s#/axelerant.com/testimonials-examples/#/store.axelerant.com/testimonials-examples/#g" *.php *.md *.txt includes/*.php
+perl -pi -e "s#http://axelerant#https://axelerant#g" *.php *.md *.txt includes/*.php
+perl -pi -e "s#support\@axelerant.com#support\@nodedesk.com#g" *.php *.md *.txt includes/*.php
+
 echo
 echo "BRAND - Aihrus"
 ${GREP} -e "Aihrus\>\|aihrus\.{0}" *
@@ -18,8 +27,8 @@ echo
 echo "DATE - 2014"
 ${GREP} "2014" *
 echo
-echo "EMAIL - support@axelerant.com > support@nodedesk.com"
-${GREP} "support@axelerant.com" *
+echo "EMAIL - @axelerant.com > @nodedesk.com"
+${GREP} "@axelerant.com" *
 echo
 echo "SPELLING - axelerant.cmo"
 ${GREP} "axelerant.cmo" *
@@ -27,8 +36,8 @@ echo
 echo "CONTRIBUTORS - ,saurabhd,subharanjan"
 ${GREP} "Contributors" *
 echo
-echo "REQS - Aihrus Framework 1.2.1"
-${GREP} -e "AIHR_VERSION.*'1.2.1'" *
+echo "REQS - Aihrus Framework 1.2.2"
+${GREP} -e "AIHR_VERSION.*'1.2.2'" *
 echo
 echo "TESTS - WordPress-Core"
 ${GREP} "WordPress-Core" ci tests
